@@ -7,7 +7,7 @@ redirect_from:
   - /resume
 ---
 
-You can download my latest 📝[CV/Resume](/files/CV_Haoyi_Duan.pdf) updated on 11/29/2022.
+You can download my latest 📝[CV/Resume](/files/CV_Haoyi_Duan.pdf) updated on 09/15/2023.
 
 
 [![CV_Haoyi_Duan_Page1](https://user-images.githubusercontent.com/58615742/205964423-5da5c353-98f3-4bf6-83fb-c11a73d47f23.png)](/files/CV_Haoyi_Duan.pdf)
