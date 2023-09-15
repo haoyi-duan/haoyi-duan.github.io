@@ -17,16 +17,6 @@ author_profile: true
 
 ------
 
-**[POI-recommendation Using Prompt Learning](https://github.com/haoyi-duan/POI-Prompt-Learning)**
-
-📝 **Published**: October 12, 2022
-
-This is my ongoing project, which is an extension of [Time as Prompt for A Geography-aware Next Location Recommendation Framework](https://github.com/haoyi-duan/TPG). Since Large-scale pre-trained models from NLP communities have demonstrated unlimited potential, we consider to combine POI recommendation with language pre-trained models through prompt. Inspired by previous work [P-tuning v2](https://arxiv.org/abs/2110.07602), we design **continuous prompt** and **discrete prompt**.
-
-![promptlearning](images/promptlearning.jpg)
-
-------
-
 **[VQA Training Based on MindSpore](https://github.com/HoffYoung/nlp-project-vqa)** 
 
 📝 **Published**: June 28, 2022
