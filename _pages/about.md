@@ -59,7 +59,9 @@ M.S. student in Electrical Engineering
 
 ## **News & Facts**
 
-* 09/2023 🌲 Arrived @ Stanford and began my journey!
+- 09/2023 📖 Our paper **Cross-modal Prompts: Adapting Large Pre-trained Models for Audio-Visual Downstream Tasks** is accepted by NeurIPS' 2023!
+- 09/2023 🌲 Arrived @ Stanford and began my journey!
+
 * 07/2023 📖 Our paper **[Time as Prompt for A Geography-aware Next Location Recommendation Framework](https://arxiv.org/abs/2304.04151)** is accepted by CIKM' 2023!
 * 07/2023 📖 Our paper **LaPE: Layer-adaptive Position Embedding for Vision Transformers with Independent Layer Normalization** is accepted by ICCV' 2023!
 * 06/2023 🎓 Graduated and received B.Eng. degree from ZJU!
@@ -67,7 +69,6 @@ M.S. student in Electrical Engineering
 * 06/2023 🏆 Zhejiang Provincial Outstanding Graduate
 * 06/2023 🏆 Outstanding Graduate of Zhejiang University
 * 06/2023 🏆 Outstanding Graduation Thesis
-* 05/2023 📖 Our paper **Cross-modal Prompts: Adapting Large Pre-trained Models for Audio-Visual Downstream Tasks** is submitted to NeurIPS' 2023
 * 04/2023 📖 Our paper [**Beyond Two-Tower Matching: Learning Sparse Retrievable Interaction Models for Recommendation**](https://dl.acm.org/doi/pdf/10.1145/3539618.3591643) is accepted by SIGIR' 2023!
 * 10/2022 🏆 Excellent developer of MindSpore
 * 06/2022 🔍 Full-time research intern at [Huawei Noah's Ark Lab](https://www.noahlab.com.hk/#/home) for 1 year
