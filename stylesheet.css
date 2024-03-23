@@ -64,13 +64,13 @@
 }
 
 a {
-  color: #1772d0;
+  color: #1f4d9d;
   text-decoration: none;
 }
 
 a:focus,
 a:hover {
-  color: #f09228;
+  color: #8c1515;
   text-decoration: none;
 }
 
@@ -81,39 +81,44 @@ tr,
 p,
 a {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 strong {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 h2 {
   margin: 0;
   font-weight: normal;
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .papertitle {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
 }
 
 .name {
-  padding-top: 20px;
+  padding-top: 22px;
   margin: 0;
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 32px;
+  font-size: 34px;
+}
+
+.cname {
+  font-family: 'FangSong', 'STFangsong', '仿宋', serif;
+  color: #1f4d9d;
 }
 
 .cname {
   /* font-family: "TeXGyrePagella", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
   font-family: 'FangSong', 'STFangsong', serif, 'Lato', Verdana, Helvetica, sans-serif;
   font-weight: 800;
-  font-size: 30px;
+  font-size: 32px;
 }
 
 .one {
@@ -184,4 +189,33 @@ span.highlight {
 
 .navbar-toggler:not(.collapsed) .bottom-bar {
   transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.slideshow-container {
+  position: relative;
+}
+
+/* .mySlides {
+  display: none;
+} */
+
+.mySlides img {
+  width: 100%; /* Adjusted to ensure width is controlled here */
+  object-fit: cover;
+  border-radius: 10px; /* Gives a slightly rounded corner for the square images */
+  transition: border-radius 0.3s ease; /* Ensures smooth transition */
+}
+
+.mySlides img:hover {
+  border-radius: 50%; /* Makes the image fully round when hovered */
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
 }
