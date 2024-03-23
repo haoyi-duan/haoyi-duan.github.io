@@ -84,6 +84,10 @@ a {
   font-size: 16px;
 }
 
+p {
+  margin-bottom: 0px; 
+}
+
 strong {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 16px;
@@ -193,6 +197,28 @@ span.highlight {
 
 .slideshow-container {
   position: relative;
+}
+
+.profile-container {
+  position: relative;
+  max-width: 850px;
+  margin: auto;
+}
+
+.profile-content {
+  background: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 可选的，添加一些阴影效果 */
+  position: relative; /* 确保这个内容区域相对于其容器定位 */
+  z-index: 2; /* 保证文本内容在图片上方 */
+}
+
+.slideshow-container-cover {
+  position: absolute;
+  bottom: -50px; /* 控制图片溢出的程度 */
+  left: 0;
+  width: 100%;
+  z-index: 1; /* 确保图片在内容下方 */
 }
 
 .mySlides {
