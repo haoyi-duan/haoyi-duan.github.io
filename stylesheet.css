@@ -226,6 +226,8 @@ span.highlight {
   width: 100%; /* 图片宽度占满整个.container */
   height: auto; /* 高度自适应 */
   display: block; /* 防止底部留白 */
+  top: 0;
+  left: 0;
   z-index: 1;
 }
 
@@ -392,15 +394,22 @@ span.highlight {
   position: relative;
   border: 2px solid white; /* 黑色实体边框 */
   background-color: lightgrey; /* 浅灰色背景 */
-  margin: -33% auto 0; /* 和周围内容保持一些距离 */
+  margin: -33% auto 0;
   padding: 0px; /* 内容和边框之间的空间 */
   border-radius: 15px;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(237, 227, 231, 0.8);
   z-index: 3;
+}
+
+.rest-section {
+  position: relative;
+  /* top: -170px; */
+  /* top: -250px; */
 }
 
 .content-container {
   position: relative;
+  margin: auto;
 }
 
 body {
