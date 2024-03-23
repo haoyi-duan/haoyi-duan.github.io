@@ -222,7 +222,7 @@ span.highlight {
 }
 
 .profile-cover {
-  position: absolute;
+  position: relative;
   width: 100%; /* 图片宽度占满整个.container */
   height: auto; /* 高度自适应 */
   display: block; /* 防止底部留白 */
@@ -392,10 +392,10 @@ span.highlight {
   position: relative;
   border: 2px solid white; /* 黑色实体边框 */
   background-color: lightgrey; /* 浅灰色背景 */
-  margin: 0px; /* 和周围内容保持一些距离 */
+  margin: -33% auto 0; /* 和周围内容保持一些距离 */
   padding: 0px; /* 内容和边框之间的空间 */
   border-radius: 15px;
-  opacity: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
   z-index: 3;
 }
 
