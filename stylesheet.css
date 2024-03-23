@@ -210,7 +210,28 @@ span.highlight {
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 可选的，添加一些阴影效果 */
   position: relative; /* 确保这个内容区域相对于其容器定位 */
-  z-index: 2; /* 保证文本内容在图片上方 */
+  z-index: 3; /* 保证文本内容在图片上方 */
+}
+
+.image-container {
+  position: absolute;
+  top: -20px; /* 调整图片与边框重叠的上方部分 */
+  left: -20px; /* 调整图片与边框重叠的左侧部分 */
+  width: calc(100% + 40px); /* 扩展图片宽度，使其超出边框 */
+  z-index: 1; /* 确保图片位于边框下方 */
+}
+
+.profile-cover {
+  position: absolute;
+  width: 100%; /* 图片宽度占满整个.container */
+  height: auto; /* 高度自适应 */
+  display: block; /* 防止底部留白 */
+  z-index: 1;
+}
+
+.other-content {
+  position: relative; /* 相对定位，以确保能正确覆盖 #profile-cover */
+  z-index: 2;
 }
 
 .slideshow-container-cover {
@@ -368,13 +389,18 @@ span.highlight {
 }
 
 .bordered-section {
+  position: relative;
   border: 2px solid white; /* 黑色实体边框 */
   background-color: lightgrey; /* 浅灰色背景 */
   margin: 0px; /* 和周围内容保持一些距离 */
   padding: 0px; /* 内容和边框之间的空间 */
   border-radius: 15px;
   opacity: 100%;
-  /* position: relative; */
+  z-index: 3;
+}
+
+.content-container {
+  position: relative;
 }
 
 body {
@@ -449,7 +475,7 @@ body:after {
   background-image: url("images/hello.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center
+  background-position: center center;
 }
 
 .deep-bg {
