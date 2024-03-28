@@ -64,13 +64,13 @@
 }
 
 a {
-  color: #1f4d9d;
+  color: #b509ac !important;
   text-decoration: none;
 }
 
 a:focus,
 a:hover {
-  color: #8c1515;
+  color: #df682e !important;
   text-decoration: none;
 }
 
@@ -91,6 +91,7 @@ p {
 strong {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 16px;
+  font-weight: bold;
 }
 
 h2 {
@@ -115,7 +116,7 @@ h2 {
 
 .cname {
   font-family: 'FangSong', 'STFangsong', '仿宋', serif;
-  color: #1f4d9d;
+  color: #2698ba;
 }
 
 .cname {
@@ -150,21 +151,6 @@ span.highlight {
   background-color: #ffffd0;
 }
 
-/* Basic styles for the navbar */
-.navbar {
-  background-color: #f8f9fa;
-  box-shadow: 0 2px 4px rgba(0,0,0,.1);
-}
-
-.navbar-nav .nav-link {
-  color: #555;
-}
-
-.navbar-toggler {
-  border: none;
-  outline: none;
-}
-
 .icon-bar {
   display: block;
   width: 22px;
@@ -172,27 +158,6 @@ span.highlight {
   background-color: #333;
   margin: 5px 0;
   transition: 0.2s;
-}
-
-/* Styles for the progress bar */
-#navProgress {
-  width: 100%;
-  position: fixed;
-  z-index: 1031; /* Higher than the navbar to appear on top */
-  top: 0;
-}
-
-/* Adjust the toggle button's bars when collapsed or not */
-.navbar-toggler:not(.collapsed) .top-bar {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.navbar-toggler:not(.collapsed) .middle-bar {
-  opacity: 0;
-}
-
-.navbar-toggler:not(.collapsed) .bottom-bar {
-  transform: rotate(-45deg) translate(6px, -6px);
 }
 
 .slideshow-container {
@@ -434,7 +399,7 @@ body {
 
 body:after {
     display: none;
-    content: url("images/hello.png") url("images/hello.png")
+    content: url("../../images/hello.png") url("../../images/hello.png")
 }
 
 @media screen and (max-width: 800px) {
@@ -481,17 +446,17 @@ body:after {
 }
 
 .shallow-bg {
-  background-image: url("images/hello.png");
+  background-image: url("../../images/hello.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
 .deep-bg {
-  background-image: url("images/background/hello.png");
+  background-image: url("../../images/hello_dark.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center
+  background-position: center center;
 }
 
 .profile-wrapper {
@@ -559,4 +524,15 @@ body:after {
       width: -webkit-calc(100%);
       width: calc(100%)
   }
+}
+
+html {
+  scroll-padding-top: 60px; /* 调整这个值以匹配你的导航栏高度 */
+}
+
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: 20px;
 }
