@@ -121,7 +121,7 @@ h2 {
 
 .cname {
   /* font-family: "TeXGyrePagella", "Palatino Linotype", "Book Antiqua", Palatino, serif; */
-  font-family: 'FangSong', 'STFangsong', serif, 'Lato', Verdana, Helvetica, sans-serif;
+  /* font-family: 'FangSong', 'STFangsong', serif, 'Lato', Verdana, Helvetica, sans-serif; */
   font-weight: 800;
   font-size: 32px;
 }
