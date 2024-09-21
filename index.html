@@ -160,7 +160,82 @@
           </tbody></table>
         </div>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    
+            
+            <tr onmouseout="regnerf_stop()" onmouseover="regnerf_start()">
+              <script type="text/javascript">
+                function mnb_abs_ww() {
+                  old = document.getElementById('mnb-abs-wonderworld').style.display
+                  console.log(old)
+                  if(old == "none") {
+                    document.getElementById('mnb-abs-wonderworld').style.display = "block"
+                  } else {
+                    document.getElementById('mnb-abs-wonderworld').style.display = "none"
+                  }
+                }
+                document.getElementById('mnb-abs-wonderworld').style.display = "none"
+              </script>
+              <!-- <td style="padding:20px;width:40%;vertical-align:middle">
+                <div class="one">
+                  <div class="two" id='regnerf_image'><video  width=100% height=100% muted autoplay loop>
+                  <source src="images/zipnerf.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                  </video></div>
+                  <img src='images/zipnerf.jpg' width="160">
+                </div>
+                <script type="text/javascript">
+                  function regnerf_start() {
+                    document.getElementById('regnerf_image').style.opacity = "1";
+                  }
+
+                  function regnerf_stop() {
+                    document.getElementById('regnerf_image').style.opacity = "0";
+                  }
+                  regnerf_stop()
+                </script>
+              </td> -->
+              <td style="width:40%;vertical-align:middle">
+                <video  width=100% height=auto style="bject-fit:cover;border-radius:5px;" muted autoplay loop playsinline>
+                <source src="images/wonderworld.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+              </td>
+              <td class="caption" style="text-align:left;padding:20px;width:75%;vertical-align:top">
+                  <span class="papertitle">WonderWorld: Interactive 3D Scene Generation from a Single Image</span>
+                <br>
+                <a href="https://kovenyu.com/" target="_blank">Hong-Xing "Koven" Yu*</a>,
+                <strong>Haoyi Duan*</strong>,
+                <a href="https://scholar.google.com/citations?user=LQvi5XAAAAAJ&hl=en" target="_blank">Charles Herrmann</a>,
+                <br>
+                <a href="https://billf.mit.edu/" target="_blank">William T. Freeman</a>,
+                <a href="https://jiajunwu.com/" target="_blank">Jiajun Wu</a>
+                <br>
+          <em>Arxiv 2024</em>
+                <br>
+                <a href="https://arxiv.org/pdf/2406.09394" target="_blank">[Paper]</a>
+                <a href="https://kovenyu.com/wonderworld/" target="_blank">[Website]</a>
+                <!-- <a href="https://github.com/KovenYu/WonderJourney" target="_blank">[Code]</a> -->
+                <a onclick="mnb_abs_ww()">[Bibtex]</a>
+                <p></p>
+                <!-- <p>Regularizing unseen views during optimization enables view synthesis from as few as 3 input images.</p> -->
+                <div class="bibtex" style="border-radius: 5px;">
+                  <div class="bibtex_text" style="display:none;font-size: 14px" id="mnb-abs-wonderworld">
+                    @article{yu2024wonderworld,
+                      <br>
+                          &nbsp&nbsp&nbsp&nbsp title={WonderWorld: Interactive 3D Scene Generation from a Single Image},
+                      <br>
+                          &nbsp&nbsp&nbsp&nbsp author={Yu, Hong-Xing and Duan, Haoyi and Herrmann, Charles and Freeman, William T and Wu, Jiajun},
+                      <br>
+                          &nbsp&nbsp&nbsp&nbsp journal={arXiv preprint arXiv:2406.09394},
+                      <br>
+                          &nbsp&nbsp&nbsp&nbsp year={2024}
+                      <br>
+
+                    }
+                  </div>
+                </div>
+              </td>
+            </tr> 
+
             <tr onmouseout="regnerf_stop()" onmouseover="regnerf_start()">
               <script type="text/javascript">
                 function mnb_abs_sw() {
@@ -217,7 +292,7 @@
                 <br>
           <em>CVPR 2024</em>
                 <br>
-                <a href="https://arxiv.org/pdf/2312.03884.pdf" target="_blank">[Paper]</a>
+                <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Yu_WonderJourney_Going_from_Anywhere_to_Everywhere_CVPR_2024_paper.pdf" target="_blank">[Paper]</a>
                 <a href="https://kovenyu.com/wonderjourney/" target="_blank">[Website]</a>
                 <a href="https://github.com/KovenYu/WonderJourney" target="_blank">[Code]</a>
                 <a onclick="mnb_abs_sw()">[Bibtex]</a>
@@ -225,15 +300,17 @@
                 <!-- <p>Regularizing unseen views during optimization enables view synthesis from as few as 3 input images.</p> -->
                 <div class="bibtex" style="border-radius: 5px;">
                   <div class="bibtex_text" style="display:none;font-size: 14px" id="mnb-abs">
-                    @article{yu2023wonderjourney,
+                    @inproceedings{yu2024wonderjourney,
                       <br>
-                          &nbsp&nbsp&nbsp&nbsp title={WonderJourney: Going from Anywhere to Everywhere},
+                          &nbsp&nbsp&nbsp&nbsp title={Wonderjourney: Going from anywhere to everywhere},
                       <br>
                           &nbsp&nbsp&nbsp&nbsp author={Yu, Hong-Xing and Duan, Haoyi and Hur, Junhwa and Sargent, Kyle and Rubinstein, Michael and Freeman, William T and Cole, Forrester and Sun, Deqing and Snavely, Noah and Wu, Jiajun and others},
                       <br>
-                          &nbsp&nbsp&nbsp&nbsp journal={arXiv preprint arXiv:2312.03884},
+                          &nbsp&nbsp&nbsp&nbsp booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
                       <br>
-                          &nbsp&nbsp&nbsp&nbsp year={2023}
+                          &nbsp&nbsp&nbsp&nbsp pages={6658--6667},
+                      <br>
+                          &nbsp&nbsp&nbsp&nbsp year={2024}
                       <br>
                     }
                   </div>
