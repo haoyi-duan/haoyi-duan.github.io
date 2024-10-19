@@ -193,6 +193,14 @@
                   regnerf_stop()
                 </script>
               </td> -->
+              <style>
+                /* Apply the shadow and background color on hover for the entire row */
+                tr.hoverable-row:hover {
+                  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.4);  /* Light shadow only on the edges */
+                  transition: background-color 0.3s, box-shadow 0.3s;  /* Smooth transition */
+                }
+              </style>
+              <tr class="hoverable-row">
               <td style="width:40%;vertical-align:middle">
                 <video  width=100% height=auto style="bject-fit:cover;border-radius:5px;" muted autoplay loop playsinline>
                 <source src="images/wonderworld.mp4" type="video/mp4">
@@ -209,7 +217,7 @@
                 <a href="https://billf.mit.edu/" target="_blank">William T. Freeman</a>,
                 <a href="https://jiajunwu.com/" target="_blank">Jiajun Wu</a>
                 <br>
-          <em>Arxiv 2024</em>
+                <em>Arxiv 2024</em>
                 <br>
                 <a href="https://arxiv.org/pdf/2406.09394" target="_blank">[Paper]</a>
                 <a href="https://kovenyu.com/wonderworld/" target="_blank">[Website]</a>
@@ -236,6 +244,7 @@
                 </div>
               </td>
             </tr> 
+          </tr>
 
             <tr onmouseout="regnerf_stop()" onmouseover="regnerf_start()">
               <script type="text/javascript">
@@ -269,6 +278,7 @@
                   regnerf_stop()
                 </script>
               </td> -->
+              <tr class="hoverable-row">
               <td style="width:40%;vertical-align:middle">
                 <video  width=100% height=auto style="bject-fit:cover;border-radius:5px;" muted autoplay loop playsinline>
                 <source src="images/wonderjourney.mp4" type="video/mp4">
@@ -291,7 +301,7 @@
                 <a href="https://jiajunwu.com/" target="_blank">Jiajun Wu</a>,
                 <a href="https://scholar.google.com/citations?user=LQvi5XAAAAAJ&hl=en" target="_blank">Charles Herrmann</a>
                 <br>
-          <em>CVPR 2024</em>
+                <em>CVPR 2024</em>
                 <br>
                 <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Yu_WonderJourney_Going_from_Anywhere_to_Everywhere_CVPR_2024_paper.pdf" target="_blank">[Paper]</a>
                 <a href="https://kovenyu.com/wonderjourney/" target="_blank">[Website]</a>
@@ -322,6 +332,8 @@
                 </div>
               </td>
             </tr> 
+          </tr>
+
 
             <tr onmouseout="regnerf_stop()" onmouseover="regnerf_start()">
               <script type="text/javascript">
@@ -355,9 +367,10 @@
                   regnerf_stop()
                 </script>
               </td> -->
+              <tr class="hoverable-row">
               <td style="width:40%;vertical-align:middle">
                 <img src="images/dgsct.png" style="width:100%; height:auto; object-fit:cover;border-radius:5px;" alt="dgsct">
-            </td>
+              </td>
               <td class="caption" style="text-align:left;padding:20px;width:75%;vertical-align:top">
                   <span class="papertitle">Cross-modal Prompts: Adapting Large Pre-trained Models for Audio-Visual Downstream Tasks</span>
                 <br>
@@ -369,7 +382,7 @@
                 <br>
                 <a href="https://scholar.google.com.hk/citations?user=IIoFY90AAAAJ" target="_blank">Zhou Zhao</a>
                 <br>
-          <em>NeurIPS 2023</em>
+                <em>NeurIPS 2023</em>
                 <br>
                 <a href="https://papers.nips.cc/paper_files/paper/2023/file/af01716e08073368a7c8a62be46dba17-Paper-Conference.pdf" target="_blank">[Paper]</a>
                 <a href="https://github.com/haoyi-duan/DG-SCT" target="_blank">[Code]</a> 
@@ -397,7 +410,7 @@
                 </div>
               </td>
             </tr> 
-            
+            </tr>
             <script type="text/javascript">
               function mnb_abs_lape() {
                 old = document.getElementById('mnb-abs-lape').style.display
@@ -410,6 +423,7 @@
               }
               document.getElementById('mnb-abs-lape').style.display = "none"
             </script>
+            <tr class="hoverable-row">
             <td style="width:40%;vertical-align:middle">
               <img src="images/lape.png" style="width:100%; height:auto; object-fit:cover;border-radius:5px;" alt="dgsct">
           </td>
@@ -426,7 +440,7 @@
               <a>Xiangyang Ji</a>,
               <a href="https://scholar.google.com/citations?user=ZAZFfwwAAAAJ" target="_blank">Jie Chen</a>
               <br>
-        <em>ICCV 2023</em>
+              <em>ICCV 2023</em>
               <br>
               <a href="https://openaccess.thecvf.com/content/ICCV2023/papers/Yu_LaPE_Layer-adaptive_Position_Embedding_for_Vision_Transformers_with_Independent_Layer_ICCV_2023_paper.pdf" target="_blank">[Paper]</a>
               <a onclick="mnb_abs_lape()">[Bibtex]</a>
@@ -451,7 +465,7 @@
               </div>
             </td>
           </tr> 
-
+          </tr>
           <script type="text/javascript">
             function mnb_abs_tpg() {
               old = document.getElementById('mnb-abs-tpg').style.display
@@ -464,9 +478,11 @@
             }
             document.getElementById('mnb-abs-tpg').style.display = "none"
           </script>
+
+          <tr class="hoverable-row">
           <td style="width:40%;vertical-align:middle">
             <img src="images/tpg.png" style="width:100%; height:auto; object-fit:cover;border-radius:5px;" alt="dgsct">
-        </td>
+          </td>
           <td class="caption" style="text-align:left;padding:20px;width:75%;vertical-align:top">
               <span class="papertitle">Timestamps as Prompts for Geography-Aware Location Recommendation</span>
             <br>
@@ -475,7 +491,7 @@
             <a href="https://yeliu.dev/" target="_blank">Ye Liu</a>,
             <a href="https://web.comp.polyu.edu.hk/cskchung/" target="_blank">Chung Fu-Lai</a>
             <br>
-      <em>CIKM 2023</em>
+            <em>CIKM 2023</em>
             <br>
             <a href="https://dl.acm.org/doi/pdf/10.1145/3583780.3615083" target="_blank">[Paper]</a>
             <a href="https://github.com/haoyi-duan/TPG" target="_blank">[Code]</a>
@@ -501,6 +517,7 @@
             </div>
           </td>
         </tr> 
+        </tr>
 
         <script type="text/javascript">
           function mnb_abs_beyond() {
@@ -514,9 +531,10 @@
           }
           document.getElementById('mnb-abs-beyond').style.display = "none"
         </script>
+        <tr class="hoverable-row">
         <td style="width:40%;vertical-align:middle">
           <img src="images/beyond.png" style="width:100%; height:auto; object-fit:cover;border-radius:5px;" alt="dgsct">
-      </td>
+        </td>
         <td class="caption" style="text-align:left;padding:20px;width:75%;vertical-align:top">
             <span class="papertitle">Beyond Two-Tower Matching: Learning Sparse Retrievable Interaction Models for Recommendation</span>
           <br>
@@ -555,7 +573,7 @@
           </div>
         </td>
       </tr> 
-
+      </tr>
             <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
               <tr>
                 <td>
