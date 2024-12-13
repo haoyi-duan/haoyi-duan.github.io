@@ -60,6 +60,23 @@ body {
     color: #000;
 }
 
+li {
+    color: #000; 
+}
+
+li::marker {
+    color: #000; 
+}
+
+/* Dark Mode */
+.dark li {
+    color: #ffffff; 
+}
+
+.dark li::marker {
+    color: #ffffff;
+}
+
 .dark .papertitle {
     color: #ffffff;
 }
