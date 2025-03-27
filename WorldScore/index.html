@@ -7,6 +7,7 @@
     <meta name="description" content="Project website for WorldScore">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/fonts/open-sans.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <title>WorldScore</title>
     <link rel="icon" href="assets/images/icons/worldscore.ico" type="image/x-icon">
@@ -297,21 +298,98 @@
 
 <body>
     <section style="margin-top: 30px;">
-        <div class="container">
-            <div class="row" id="title" style="border-bottom: 2px solid #ddd; padding-bottom: 30px; margin-bottom: 40px;">
-                <p class="col text-center text-title">
-                    <span style="font-size: 1.5em; font-weight: bold;">
-                        <img src="assets/images/icons/worldscore.ico" alt="WorldScore Icon" style="height: 1em; vertical-align: middle; margin-right: 5px;">
-                        WorldScore
-                    </span>
-                    <br>
-                    <span style="font-size: 1em;">
-                        Unified Evaluation Benchmark for World Generation
-                    </span>
-                </p>
+        <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+            <div class="row" id="title" style="width: 100%; border-bottom: 2px solid #ddd; padding-bottom: 30px; margin-bottom: 40px; text-align: center;">
+                <div class="col">
+                    <p class="text-center text-title" style="margin-bottom: 20px;">
+                        <span style="font-size: 1.5em; font-weight: bold; display: inline-block;">
+                            <img src="assets/images/icons/worldscore.ico" alt="WorldScore Icon" style="height: 1em; vertical-align: middle; margin-right: 5px;">
+                            WorldScore
+                        </span>
+                        <br>
+                        <span style="font-size: 1em; display: block; margin-top: 10px;">
+                            Unified Evaluation Benchmark for World Generation
+                        </span>
+                    </p>
+                    <div class="row justify-content-center" id="authors">
+                        <div class="col-md-12 text-center mt-2 text-author">
+                            <ul class="list-inline" style="margin-bottom: 10px;">
+                                <li class="list-inline-item mx-2">
+                                    <a href="https://haoyi-duan.github.io">
+                                        <p style="margin: 0;">Haoyi Duan<sup>*</sup></p>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item mx-2">
+                                    <a href="https:/kovenyu.com">
+                                        <p style="margin: 0;">Hong-Xing "Koven" Yu<sup>*</sup></p>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item mx-2">
+                                    <a href="https://www.linkedin.com/in/sirui-c-6492a0232/">
+                                        <p style="margin: 0;">Sirui Chen</p>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item mx-2">
+                                    <a href="https://profiles.stanford.edu/fei-fei-li">
+                                        <p style="margin: 0;">Li Fei-Fei</p>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item mx-2">
+                                    <a href="https://jiajunwu.com/">
+                                        <p style="margin: 0;">Jiajun Wu</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="list-inline" style="margin: 10px 0 0 0;">
+                                <li class="list-inline-item mx-4">
+                                    <p style="margin: 0;">Stanford University</p>
+                                </li>
+                                <li class="list-inline-item mx-4">
+                                    <p style="margin: 0;"><sup>*</sup>Contributed Equally</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- <div class="row" id="venue">
+                        <p class="col text-center text-venue">
+                          CVPR 2025
+                        </p>
+                      </div> -->
+        
+                    <div class="row" id="resources" style="margin-top: 30px;">
+                        <div class="col text-center mt-m4">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <a href="" class="resource-button">
+                                        <i class="bi bi-file-earmark-text"></i>
+                                        Paper
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="" class="resource-button">
+                                        <i class="bi bi-github"></i>
+                                        Code
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="https://huggingface.co/datasets/Howieeeee/WorldScore" class="resource-button">
+                                        <i class="bi bi-database"></i>
+                                        Dataset
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="https://huggingface.co/spaces/Howieeeee/WorldScore_Leaderboard" class="resource-button">
+                                        <i class="bi bi-trophy"></i>
+                                        Leaderboard
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </section> 
 
     <section>
         <div class="container">
@@ -900,6 +978,39 @@
             </div>
         </div>
     </section>
+    
+    <section>
+        <div class="container">
+            <div class="row" id="abstract">
+                <div class="col my-3">
+                    <p class="text-header">
+                        Abstract
+                    </p>
+                    <p class="body-text">
+                        We introduce the WorldScore benchmark, the first unified benchmark for world generation. We decompose world generation into a sequence of next-scene generation tasks with explicit camera trajectory-based layout specifications, enabling unified evaluation of diverse approaches from 3D and 4D scene generation to video generation models. The WorldScore benchmark encompasses a curated dataset of 3,000 test examples that span diverse worlds: static and dynamic, indoor and outdoor, photorealistic and stylized. The WorldScore metric evaluates generated worlds through three key aspects: controllability, quality, and dynamics. Through extensive evaluation of 19 representative models, including both open-source and closed-source ones, we reveal key insights and challenges for each category of models.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row" id="citation">
+                <div class="col my-3">
+                    <p class="text-header">
+                        BibTeX
+                    </p>
+                    <div class="citation-block">
+                        <div id="citation-text" class="citation-content">
+                            Coming soon!
+                        </div>
+                        <button onclick="copyToClipboard()" class="button active mt-2">Copy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <div style="height: 60px;"></div>
 
@@ -1087,6 +1198,26 @@
         });
     });
     </script>
+
+<!-- Default Statcounter code for WorldScore Benchmark
+https://haoyi-duan.github.io/WorldScore/ -->
+<script type="text/javascript">
+    var sc_project=13109252; 
+    var sc_invisible=1; 
+    var sc_security="bbfbe108"; 
+    </script>
+    <script type="text/javascript"
+    src="https://www.statcounter.com/counter/counter.js"
+    async></script>
+    <noscript><div class="statcounter"><a title="Web Analytics"
+    href="https://statcounter.com/" target="_blank"><img
+    class="statcounter"
+    src="https://c.statcounter.com/13109252/0/bbfbe108/1/"
+    alt="Web Analytics"
+    referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+    <!-- End of Statcounter Code -->
+    <a href="https://statcounter.com/p13109252/?guest=1">View My
+    Stats</a>
 
 </body>
 
