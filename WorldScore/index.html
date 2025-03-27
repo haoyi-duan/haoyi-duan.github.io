@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Project website for WorldScore">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/fonts/open-sans.css">
+
+    <title>WorldScore</title>
+    <link rel="icon" href="assets/images/icons/worldscore.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/icons/worldscore.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/project.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/slick-theme.css">
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery-migrate.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+
+</head>
+
+<style>
+    #canvas-container {
+        background-color: rgb(178, 178, 178);
+    }
+    #canvas {
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+    }
+    .container{
+        max-width: 1000px;
+    }
+    .arrow {
+        border: solid black;
+        border-width: 0 4px 4px 0;
+
+        position: absolute;
+        top: 50%;
+
+        width: 20px;
+        height: 20px;
+        -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+        cursor: pointer;
+    }
+
+    .right {
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        right: -25px;
+    }
+
+    .left {
+        transform: rotate(135deg);
+        -webkit-transform: rotate(135deg);
+        left: -25px;
+    }
+
+    .nav-item {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .nav-item img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        width: 300px;
+    }
+
+    .nav-item p {
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 500;
+        line-height: 1.5rem;
+        font-size: 1.2rem;
+        color: black;
+    }
+
+    .interactive-item {
+        align-content: center;
+    }
+
+    .interactive-item video {
+        max-width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .interactive-item p {
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 500;
+        line-height: 1.5rem;
+        font-size: 1.2rem;
+        color: black;
+    }
+
+    .interactive-container {
+        margin-bottom: 0rem;
+        display: grid !important;
+        grid-template-columns: 100%;
+        grid-template-rows: 1fr;
+        gap: 0% 1%;
+        justify-content: center;
+    }
+
+    .generated-container {
+      margin-bottom: 1rem;
+      display: grid !important;
+      grid-template-columns: 100%;
+      grid-template-rows: 1fr;
+      gap: 0% 1%;
+      justify-content: center;
+  }
+
+    .teaser-item {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+
+    .two-column-section {
+        display: flex;
+        width: 100%;
+        margin-top: 5px;
+        padding: 5px 0;
+    }
+    
+    .two-column-section .column {
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .two-column-section .first-column {
+        width: 100%;
+        padding-left: 2%;
+    }
+    
+    .two-column-section .second-column {
+        width: 100%;
+        padding-right: 2%;
+    }
+
+    .two-column-section .body-text {
+        margin: 0;
+        padding: 5px 0;
+        text-align: center;
+    }
+
+    .slider-nav-interactive {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .slider-nav-interactive .slick-slide {
+        padding: 0 10px;
+    }
+
+    .metric-buttons {
+        text-align: center;
+        margin: 20px 0;
+    }
+    
+    .metric-button {
+        padding: 8px 16px;
+        margin: 0 8px;
+        border: 2px solid #333;
+        background-color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1rem;
+    }
+    
+    .metric-button:hover {
+        background-color: #f0f0f0;
+    }
+    
+    .metric-button.active {
+        background-color: #333;
+        color: white;
+    }
+
+    /* 确保这些样式优先级更高 */
+    .metric-button:not(.active) {
+        background-color: white !important;
+        color: #333 !important;
+    }
+
+    .metric-button.active {
+        background-color: #333 !important;
+        color: white !important;
+    }
+
+    /* 确保滑块容器没有额外的边距 */
+    .slider-for-interactive {
+        margin-bottom: 0;
+    }
+
+    .quality-button {
+        padding: 8px 16px;
+        margin: 0 8px;
+        border: 2px solid #333;
+        background-color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1rem;
+    }
+    
+    .quality-button:hover {
+        background-color: #f0f0f0;
+    }
+    
+    .quality-button.active {
+        background-color: #333;
+        color: white;
+    }
+
+    /* 确保样式优先级 */
+    .quality-button:not(.active) {
+        background-color: white !important;
+        color: #333 !important;
+    }
+
+    .quality-button.active {
+        background-color: #333 !important;
+        color: white !important;
+    }
+
+    .dynamics-button {
+        padding: 8px 16px;
+        margin: 0 8px;
+        border: 2px solid #333;
+        background-color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1rem;
+    }
+    
+    .dynamics-button:hover {
+        background-color: #f0f0f0;
+    }
+    
+    .dynamics-button.active {
+        background-color: #333;
+        color: white;
+    }
+
+    /* 确保样式优先级 */
+    .dynamics-button:not(.active) {
+        background-color: white !important;
+        color: #333 !important;
+    }
+
+    .dynamics-button.active {
+        background-color: #333 !important;
+        color: white !important;
+    }
+
+    /* 更大的导航点 */
+    .slick-dots li button:before {
+        font-size: 16px;  /* 更大的点 */
+        width: 16px;      /* 更大的宽度 */
+        height: 16px;     /* 更大的高度 */
+    }
+    
+    /* 更大的点间距 */
+    .slick-dots li {
+        margin: 0 12px;   /* 更大的间距 */
+    }
+    
+    /* 当前活动点的样式 */
+    .slick-dots li.slick-active button:before {
+        font-size: 20px;  /* 更大的活动点 */
+        opacity: .75;
+    }
+
+</style>
+
+<body>
+    <section style="margin-top: 30px;">
+        <div class="container">
+            <div class="row" id="title" style="border-bottom: 2px solid #ddd; padding-bottom: 30px; margin-bottom: 40px;">
+                <p class="col text-center text-title">
+                    <span style="font-size: 1.5em; font-weight: bold;">
+                        <img src="assets/images/icons/worldscore.ico" alt="WorldScore Icon" style="height: 1em; vertical-align: middle; margin-right: 5px;">
+                        WorldScore
+                    </span>
+                    <br>
+                    <span style="font-size: 1em;">
+                        Unified Evaluation Benchmark for World Generation
+                    </span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col my-3">
+                    <p class="text-header" style="font-size: 2.5em; font-weight: bold; margin-bottom: 10px;">
+                        Demonstration of the WorldScore Metrics
+                    </p>
+                    <div class="teaser-item">
+                        <p class="body-text">
+                            The WorldScore metrics (including WorldScore-Static and WorldScore-Dynamic) measure a model's ability to <strong>generate a world following instructions</strong>. Unlike existing video generation benchmarks that primarily assess single-scene video quality, we decompose world generation to a sequence of next-scene generation tasks based on explicit camera trajectory-based layout specifications. The WorldScore metrics aggregate three key aspects in world generation: controllability, quality, and dynamics.
+                        </p>
+                    </div>
+                    <div class="teaser-item">
+                        <p class="body-text">
+                            Here we showcase how the WorldScore-Static metric measures world generation capability of a pair of models. Given an initial scene of <strong>a bedroom</strong> with a specified camera path—<strong>"pan left" → "move left" → "pull out"</strong>—the RHS model that fails to follow these instructions (as shown in the right video below) is penalized for poor camera controllability, the failure to generate specified objects and background, and 3D inconsistency, altogether leading to a lower score (<strong>score 46.28</strong>). In contrast, the LHS model (which generates the left video below) that follows the instruction of layout and contents with high 3D consistency can get higher score (<strong>score 70.70</strong>) even if it has some visual artifacts that prevent it from getting an even higher score.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Single Video Content -->
+        <div class="container">
+            <div class="container interactive-container">
+                <div class="interactive-item">
+                    <video muted controls loop playsinline webkit-playsinline>
+                        <source src="assets/videos/overview.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col my-3">
+                    <p class="text-header" style="font-size: 2.5em; font-weight: bold; margin-bottom: 10px;">
+                        Demonstration of Individual Metrics
+                    </p>
+                    <p class="text-header"">
+                        Controllability
+                    </p>
+                    <div class="metric-buttons" style="text-align: center; margin: 20px 0;">
+                        <button class="metric-button active" data-metric="camera">Camera Controllability</button>
+                        <button class="metric-button" data-metric="object">Object Controllability</button>
+                        <button class="metric-button" data-metric="content">Content Alignment</button>
+                    </div>
+                    <div class="teaser-item">
+                        <p class="body-text" id="metric-description">
+                            Camera controllability evaluates how well the models adhere to the instrected layout. The layout instructions for each showcases are shown below the input image (e.g., "Camera pans right").
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Camera Control Content -->
+        <div class="metric-content" id="camera-content">
+            <div class="container slider-nav-interactive">
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/control/camera_control/2.jpg">
+                    <p>Camera pans right</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/control/camera_control/1.jpg">
+                    <p>Camera pans left</p>
+                </div>
+                <!-- ... other camera control thumbnails ... -->
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/control/camera_control/3.jpg">
+                    <p>Camera pans right</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/control/camera_control/4.jpg">
+                    <p>Camera pushes in</p>
+                </div>
+            </div>
+            <div class="container slider-for-interactive">
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/control/camera_control/2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/control/camera_control/1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                
+                <!-- ... other camera control videos ... -->
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/control/camera_control/3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/control/camera_control/4.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Alignment Content -->
+        <div class="metric-content" id="content-content" style="display: none;">
+            <div class="container slider-nav-interactive">
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/control/content_alignment/1.jpg">
+                    <p>A serene Urban Balcony featuring a lush potted plant...</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/control/content_alignment/2.jpg">
+                    <p>School corridor, bulletin board, row of lockers; trophy display case; school courtyard, fountain, benches.</p>
+                </div>
+                <!-- ... other content alignment thumbnails ... -->
+            </div>
+            <div class="container slider-for-interactive">
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/control/content_alignment/1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/control/content_alignment/2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <!-- ... other content alignment videos ... -->
+            </div>
+        </div>
+
+        <!-- Object Control Content -->
+        <div class="metric-content" id="object-content" style="display: none;">
+            <div class="container slider-nav-interactive">
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/control/object_control/1.jpg">
+                    <p>pancakes, orange juice</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/control/object_control/2.jpg">
+                    <p>building, library, books, antique lamp</p>
+                </div>
+                <!-- ... other object control thumbnails ... -->
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/control/object_control/3.jpg">
+                    <p>seating area, plants, city view, luxury lounge chairs</p>
+                </div>
+            </div>
+            <div class="container slider-for-interactive">
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/control/object_control/1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <!-- ... other object control videos ... -->
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/control/object_control/2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/control/object_control/3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col my-3">
+                    <p class="text-header">
+                        Quality<br>
+                    </p>
+                    <div class="metric-buttons" style="text-align: center; margin: 20px 0;">
+                        <button class="quality-button active" data-quality="3d">3D Consistency</button>
+                        <button class="quality-button" data-quality="photometric">Photometric Consistency</button>
+                        <button class="quality-button" data-quality="style">Style Consistency</button>
+                        <button class="quality-button" data-quality="subjective">Subjective Quality</button>
+                    </div>
+                    <div class="teaser-item">
+                        <p class="body-text" id="quality-description">
+                            3D consistency focuses on how the geometry of a scene remains stable across frames, regardless of slight changes in visual textures.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3D Consistency Content -->
+        <div class="quality-content" id="3d-content">
+            <div class="container slider-nav-interactive">
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/quality/3D_consistency/3.jpg">
+                    <p>Seaside Dining...</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/quality/3D_consistency/1.jpg">
+                    <p>Urban Intersection...</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/quality/3D_consistency/2.jpg">
+                    <p>A vintage truck...</p>
+                </div>
+                
+                <!-- ... other thumbnails ... -->
+            </div>
+            <div class="container slider-for-interactive">
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/quality/3D_consistency/3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/quality/3D_consistency/1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <!-- ... other videos ... -->
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/quality/3D_consistency/2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Subjective Consistency Content -->
+        <div class="quality-content" id="subjective-content" style="display: none;">
+            <!-- Similar structure as 3d-content -->
+            <div class="container slider-nav-interactive">
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/quality/subjective_quality/1.jpg">
+                    <p>A bright Modern Kitchen...</p>
+                </div>
+                <!-- ... other thumbnails ... -->
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/quality/subjective_quality/2.jpg">
+                    <p>Clothing Store Interior...</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/quality/subjective_quality/3.jpg">
+                    <p>Mountain Monastery...</p>
+                </div>
+            </div>
+            <div class="container slider-for-interactive">
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/quality/subjective_quality/1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <!-- ... other videos ... -->
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/quality/subjective_quality/2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/quality/subjective_quality/3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Style Consistency Content -->
+        <div class="quality-content" id="style-content" style="display: none;">
+            <!-- Similar structure as 3d-content -->
+            <div class="container slider-nav-interactive">
+                <!-- ... other thumbnails ... -->
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/quality/style_consistency/2.jpg">
+                    <p>Urban Rope Structure...</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/quality/style_consistency/3.jpg">
+                    <p>Urban Streetview...</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/quality/style_consistency/4.jpg">
+                    <p>Closed Escalator...</p>
+                </div>
+            </div>
+            <div class="container slider-for-interactive">
+                <!-- ... other videos ... -->
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/quality/style_consistency/2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/quality/style_consistency/3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/quality/style_consistency/4.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photometric Consistency Content -->
+        <div class="quality-content" id="photometric-content" style="display: none;">
+            <!-- Similar structure as 3d-content -->
+            <div class="container slider-nav-interactive">
+                <!-- ... other thumbnails ... -->
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/quality/photometric_consistency/3.jpg">
+                    <p>The cozy sofa and sleek coffee table are bathed in warm, natural light from the large windows.</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/quality/photometric_consistency/4.jpg">
+                    <p>Sunlight streams through large windows casting shadows over the statues and the checkered floor.</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/quality/photometric_consistency/5.jpg">
+                    <p>A breathtaking view of the Majestic Mountain Range as clouds gently caress the towering peaks.</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/quality/photometric_consistency/6.jpg">
+                    <p>In the Night Cityscape, the illuminated skyscrapers...</p>
+                </div>
+            </div>
+            <div class="container slider-for-interactive">
+                <!-- ... other videos ... -->
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/quality/photometric_consistency/3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/quality/photometric_consistency/4.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/quality/photometric_consistency/5.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/quality/photometric_consistency/6.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col my-3">
+                    <p class="text-header">
+                        Dynamics<br>
+                    </p>
+                    <div class="metric-buttons" style="text-align: center; margin: 20px 0;">
+                        <button class="dynamics-button active" data-dynamics="motion-accuracy">Motion Accuracy</button>
+                        <button class="dynamics-button" data-dynamics="magnitude">Motion Magnitude</button>
+                        <button class="dynamics-button" data-dynamics="smoothness">Motion Smoothness</button>
+                    </div>
+                    <div class="teaser-item">
+                        <p class="body-text" id="dynamics-description">
+                            Motion accuracy measures whether the motion specified in the next-scene prompt (shown below the input image) occurs in the specified regions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--     Content -->
+        <div class="dynamics-content" id="motion-accuracy-content">
+            <div class="container slider-nav-interactive">
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/dynamics/motion_accuracy/1.jpg">
+                    <p>The octopus moves gracefully across the sandy ocean floor by extending and retracting its tentacles...</p>
+                </div>
+                <!-- ... other thumbnails ... -->
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/dynamics/motion_accuracy/2.jpg">
+                    <p>Water gently flows, creating subtle ripples on its surface.</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/dynamics/motion_accuracy/3.jpg">
+                    <p>Waterfall plunges down the cliff face, misting as it hits the pool. The stream flows swiftly over rocks...</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/dynamics/motion_accuracy/4.jpg">
+                    <p>The turtle slowly crawls forward into the water. The fish swims smoothly beneath the surface...</p>
+                </div>
+            </div>
+            <div class="container slider-for-interactive">
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/dynamics/motion_accuracy/1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <!-- ... other videos ... -->
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/dynamics/motion_accuracy/2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/dynamics/motion_accuracy/3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/dynamics/motion_accuracy/4.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Motion Smoothness Content -->
+        <div class="dynamics-content" id="smoothness-content" style="display: none;">
+            <!-- Similar structure as 3d-content -->
+            <div class="container slider-nav-interactive">
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/dynamics/motion_smoothness/1.jpg">
+                    <p>The panda gently shifts its weight from side to side as it climbs...</p>
+                </div>
+                <!-- ... other thumbnails ... -->
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/dynamics/motion_smoothness/2.jpg">
+                    <p>The large potted plant next to the desk sways gently side to side as if moved by a breeze...</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/dynamics/motion_smoothness/3.jpg">
+                    <p>The waterfall cascades down the cliff in a continuous, smooth flow...</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/dynamics/motion_smoothness/4.jpg">
+                    <p>The LEGO figure pivots and scans the horizon with its arm raised.</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/dynamics/motion_smoothness/5.jpg">
+                    <p>The car moves steadily across the snow-covered terrain, leaving deep tracks behind it as it navigates icy landscape.</p>
+                </div>
+            </div>
+            <div class="container slider-for-interactive">
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/dynamics/motion_smoothness/1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <!-- ... other videos ... -->
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/dynamics/motion_smoothness/2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/dynamics/motion_smoothness/3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/dynamics/motion_smoothness/4.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/dynamics/motion_smoothness/5.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Motion Magnitude Content -->
+        <div class="dynamics-content" id="magnitude-content" style="display: none;">
+            <!-- Similar structure as 3d-content -->
+            <div class="container slider-nav-interactive">
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/dynamics/motion_magnitude/1.jpg">
+                    <p>The sea turtle glides smoothly through the water, propelling itself forward with slow, graceful movements...</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/dynamics/motion_magnitude/2.jpg">
+                    <p>The rocket blasts upwards into the sky, propelled by powerful thrust from its engines. The clouds of smoke billow outward rapidly...</p>
+                </div>
+                <div class="container nav-item">
+                    <img data-lazy="assets/images/dynamics/motion_magnitude/3.jpg">
+                    <p>The octopus glides smoothly through the shallow water, its tentacles undulating gently to propel it forward.</p>
+                </div>
+                <!-- ... other thumbnails ... -->
+            </div>
+            <div class="container slider-for-interactive">
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/dynamics/motion_magnitude/1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <!-- ... other videos ... -->
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/dynamics/motion_magnitude/2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="container interactive-container">
+                    <div class="interactive-item">
+                        <video muted controls loop playsinline webkit-playsinline>
+                            <source src="assets/videos/dynamics/motion_magnitude/3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div style="height: 60px;"></div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('.slider-for-interactive').each(function() {
+                $(this).slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    asNavFor: $(this).parent().find('.slider-nav-interactive'),
+                    autoplay: true,
+                    speed: 300,
+                    autoplaySpeed: 100000,
+                });
+            });
+
+            $('.slider-nav-interactive').each(function() {
+                $(this).slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    asNavFor: $(this).parent().find('.slider-for-interactive'),
+                    dots: true,
+                    centerMode: true,
+                    centerPadding: '10%',
+                    focusOnSelect: true,
+                    nextArrow: '<div class="arrow right"></div>',
+                    prevArrow: '<div class="arrow left"></div>',
+                });
+            });
+
+
+            // 按钮点击处理
+            $('.metric-button').click(function() {
+                $('.metric-button').removeClass('active');
+                $(this).addClass('active');
+                
+                $('.metric-content').hide();
+                $('#' + $(this).data('metric') + '-content').show();
+                
+                $('.slider-for-interactive, .slider-nav-interactive').slick('setPosition');
+            });
+
+            // Quality button click handling
+            $('.quality-button').click(function() {
+                $('.quality-button').removeClass('active');
+                $(this).addClass('active');
+                
+                $('.quality-content').hide();
+                $('#' + $(this).data('quality') + '-content').show();
+                
+                $('.slider-for-interactive, .slider-nav-interactive').slick('setPosition');
+            });
+
+            // Dynamics button click handling
+            $('.dynamics-button').click(function() {
+                $('.dynamics-button').removeClass('active');
+                $(this).addClass('active');
+                
+                $('.dynamics-content').hide();
+                $('#' + $(this).data('dynamics') + '-content').show();
+                
+                $('.slider-for-interactive, .slider-nav-interactive').slick('setPosition');
+            }); 
+
+            $('.slider-for-interactive').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                asNavFor: '.slider-nav-interactive',
+                autoplay: true,
+                speed: 300,
+                autoplaySpeed: 100000,
+            });
+
+            $('.slider-nav-interactive').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                asNavFor: '.slider-for-interactive',
+                dots: true,
+                centerMode: true,
+                centerPadding: '10%',
+                focusOnSelect: true,
+                nextArrow: '<div class="arrow right"></div>',
+                prevArrow: '<div class="arrow left"></div>',
+            });
+
+        });
+    </script>
+    <script src="assets/js/canvas.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const videos = document.querySelectorAll('video[muted][loop]');
+
+            const options = {
+                root: null, // sets the framing element to the viewport
+                threshold: 0.5 // at least 50% of the video must be visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.play();
+                    } else {
+                        entry.target.pause();
+                        entry.target.currentTime = 0; // Reset the video to the beginning
+                    }
+                });
+            }, options);
+
+            videos.forEach(video => {
+                observer.observe(video);
+            });
+        });
+
+    </script>
+
+    <script>
+    document.querySelectorAll('.metric-button').forEach(button => {
+        button.addEventListener('click', function() {
+            // 更新按钮状态
+            document.querySelectorAll('.metric-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            this.classList.add('active');
+            
+            // 更新描述文本
+            const descriptions = {
+                'camera': 'Camera controllability evaluates how well the models adhere to the instrected layout. The layout instructions for each showcases are shown below the input image (e.g., "Camera pans right").',
+                'object': 'Object controllability evaluates whether the objects specified in the next-scene prompt (shown below the input image) appear in the generated next scene.',
+                'content': 'Content alignment assesses whether the generated scenes are aligned with the entire text description (shown below the input image) using CLIPScore.'
+            };
+            
+            const metricType = this.getAttribute('data-metric');
+            document.getElementById('metric-description').innerHTML = 
+                `${descriptions[metricType]}`;
+        });
+    });
+    </script>
+
+    <script>
+    document.querySelectorAll('.quality-button').forEach(button => {
+        button.addEventListener('click', function() {
+            // 更新按钮状态
+            document.querySelectorAll('.quality-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            this.classList.add('active');
+            
+            // 更新描述文本
+            const descriptions = {
+                '3d': '3D consistency focuses on how the geometry of a scene remains stable across frames, regardless of slight changes in visual textures.',
+                'photometric': 'Photometric consistency measures the stability in appearance (e.g., textures) across frames.',
+                'style': 'Style consistency focuses on the consistency of visual style between the current scene (the input image shown below) and new scenes.',
+                'subjective': 'We use automatic metrics to evaluate the human perceptual quality of generated scenes.'
+            };
+            
+            const qualityType = this.getAttribute('data-quality');
+            document.getElementById('quality-description').innerHTML = 
+                `${descriptions[qualityType]}`;
+        });
+    });
+    </script>
+
+    <script>
+    document.querySelectorAll('.dynamics-button').forEach(button => {
+        button.addEventListener('click', function() {
+            // 更新按钮状态
+            document.querySelectorAll('.dynamics-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            this.classList.add('active');
+            
+            // 更新描述文本
+            const descriptions = {
+                'motion-accuracy': 'Motion accuracy measures whether the motion specified in the next-scene prompt (shown below the input image) occurs in the specified regions.',
+                'magnitude': 'Motion magnitude measures a world generation model\'s ability to create large motions.',
+                'smoothness': 'We utilize a standard video frame interpolation model to generate smooth interpolation as ground truth to evaluate the temporal smoothness of generated videos.'
+            };
+            
+            const dynamicsType = this.getAttribute('data-dynamics');
+            document.getElementById('dynamics-description').innerHTML = 
+                `${descriptions[dynamicsType]}`;
+        });
+    });
+    </script>
+
+</body>
+
+</html>
