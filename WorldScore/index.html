@@ -55,7 +55,7 @@
         height: auto;
     }
     .container{
-        max-width: 1000px;
+        max-width: 1100px;
     }
     .arrow {
         border: solid black;
@@ -314,21 +314,46 @@
         opacity: .75;
     }
 
+    .score-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 20px;
+        margin-top: 10px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.0rem;
+        font-weight: 500;
+    }
+
+    .score-left, .score-right {
+        padding: 5px 15px;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+    }
+
+    .score-left {
+        color: #000000;  /* Green for better scores */
+    }
+
+    .score-right {
+        color: #000000;  /* Red for lower scores */
+    }
+
 </style>
 
 <body>
     <section style="margin-top: 30px;">
         <div class="container" style="display: flex; flex-direction: column; align-items: center;">
-            <div class="row" id="title" style="width: 100%; border-bottom: 2px solid #ddd; padding-bottom: 30px; margin-bottom: 40px; text-align: center;">
+            <div class="row" id="title" style="width: 100%; text-align: center;">
                 <div class="col">
                     <p class="text-center text-title" style="margin-bottom: 20px;">
-                        <span style="font-size: 1.5em; font-weight: bold; display: inline-block;">
+                        <span style="font-size: 2em; font-weight: bold; display: inline-block;">
                             <img src="assets/images/icons/worldscore.ico" alt="WorldScore Icon" style="height: 1em; vertical-align: middle; margin-right: 5px;">
                             WorldScore
                         </span>
                         <br>
                         <span style="font-size: 1em; display: block; margin-top: 10px;">
-                            Unified Evaluation Benchmark for World Generation
+                            A Unified Evaluation Benchmark for World Generation
                         </span>
                     </p>
                     <div class="row justify-content-center" id="authors">
@@ -415,17 +440,15 @@
         <div class="container">
             <div class="row">
                 <div class="col my-3">
-                    <p class="text-header" style="font-size: 2.5em; font-weight: bold; margin-bottom: 10px;">
+                    <!-- <p class="text-header" style="font-size: 2.5em; font-weight: bold; margin-bottom: 10px;">
                         Demonstration of the WorldScore Metrics
+                    </p> -->
+                    <p class="text-header"">
+                        Overview
                     </p>
                     <div class="teaser-item">
                         <p class="body-text">
-                            The WorldScore metrics (including WorldScore-Static and WorldScore-Dynamic) measure a model's ability to <strong>generate a world following instructions</strong>. Unlike existing video generation benchmarks that primarily assess single-scene video quality, we decompose world generation to a sequence of next-scene generation tasks based on explicit camera trajectory-based layout specifications. The WorldScore metrics aggregate three key aspects in world generation: controllability, quality, and dynamics.
-                        </p>
-                    </div>
-                    <div class="teaser-item">
-                        <p class="body-text">
-                            Here we showcase how the WorldScore-Static metric measures world generation capability of a pair of models. Given an initial scene of <strong>a bedroom</strong> with a specified camera path—<strong>"pan left" → "move left" → "pull out"</strong>—the RHS model that fails to follow these instructions (as shown in the right video below) is penalized for poor camera controllability, the failure to generate specified objects and background, and 3D inconsistency, altogether leading to a lower score (<strong>score 46.28</strong>). In contrast, the LHS model (which generates the left video below) that follows the instruction of layout and contents with high 3D consistency can get higher score (<strong>score 70.70</strong>) even if it has some visual artifacts that prevent it from getting an even higher score.
+                            The WorldScore metrics (including WorldScore-Static and WorldScore-Dynamic) measure a model's ability to <strong>generate a world following instructions</strong>. Unlike existing benchmarks that focus on single-scene quality, we decompose world generation to a sequence of next-scene generation tasks based on explicit camera trajectories, assessing <strong>controllability</strong>, <strong>quality</strong>, and <strong>dynamics</strong>.
                         </p>
                     </div>
                 </div>
@@ -441,6 +464,11 @@
                     </video>
                 </div>
             </div>
+            <div class="teaser-item">
+                <p class="body-text">
+                    Here we showcase how the WorldScore-Static metric measures two models given an initial scene of <strong>a bedroom</strong> with a specified camera path—<strong>"pan left" → "move left" → "pull out"</strong>. While existing benchmarks rate Models A and B similarly based on single-scene video quality, our WorldScore benchmark differentiates their world generation capabilities by identifying that Model B fails to generate a new scene or follow the instructed camera movement.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -448,9 +476,9 @@
         <div class="container">
             <div class="row">
                 <div class="col my-3">
-                    <p class="text-header" style="font-size: 2.5em; font-weight: bold; margin-bottom: 10px;">
+                    <!-- <p class="text-header" style="font-size: 2.5em; font-weight: bold; margin-bottom: 10px;">
                         Demonstration of Individual Metrics
-                    </p>
+                    </p> -->
                     <p class="text-header"">
                         Controllability
                     </p>
@@ -495,6 +523,10 @@
                         <video muted controls loop playsinline webkit-playsinline preload="none">
                             <source src="assets/videos/control/camera_control/2.mp4" type="video/mp4">
                         </video>
+                        <div class="score-container">
+                            <span class="score-left">Score: 99.96</span>
+                            <span class="score-right">Score: 0.00</span>
+                        </div>
                     </div>
                 </div>
                 <div class="container interactive-container">
@@ -502,6 +534,10 @@
                         <video muted controls loop playsinline webkit-playsinline preload="none">
                             <source data-lazy="assets/videos/control/camera_control/1.mp4" type="video/mp4">
                         </video>
+                        <div class="score-container">
+                            <span class="score-left">Score: 99.90</span>
+                            <span class="score-right">Score: 0.00</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -511,6 +547,10 @@
                         <video muted controls loop playsinline webkit-playsinline preload="none">
                             <source data-lazy="assets/videos/control/camera_control/3.mp4" type="video/mp4">
                         </video>
+                        <div class="score-container">
+                            <span class="score-left">Score: 99.97</span>
+                            <span class="score-right">Score: 0.00</span>
+                        </div>
                     </div>
                 </div>
                 <div class="container interactive-container">
@@ -518,6 +558,10 @@
                         <video muted controls loop playsinline webkit-playsinline preload="none">
                             <source data-lazy="assets/videos/control/camera_control/4.mp4" type="video/mp4">
                         </video>
+                        <div class="score-container">
+                            <span class="score-left">Score: 99.95</span>
+                            <span class="score-right">Score: 0.00</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -542,6 +586,10 @@
                         <video muted controls loop playsinline webkit-playsinline>
                             <source data-lazy="assets/videos/control/content_alignment/1.mp4" type="video/mp4">
                         </video>
+                        <div class="score-container">
+                            <span class="score-left">Score: 71.13</span>
+                            <span class="score-right">Score: 0.00</span>
+                        </div>
                     </div>
                 </div>
                 <div class="container interactive-container">
@@ -549,6 +597,10 @@
                         <video muted controls loop playsinline webkit-playsinline>
                             <source data-lazy="assets/videos/control/content_alignment/2.mp4" type="video/mp4">
                         </video>
+                        <div class="score-container">
+                            <span class="score-left">Score: 69.60</span>
+                            <span class="score-right">Score: 20.53</span>
+                        </div>
                     </div>
                 </div>
                 <!-- ... other content alignment videos ... -->
@@ -578,6 +630,10 @@
                         <video muted controls loop playsinline webkit-playsinline>
                             <source data-lazy="assets/videos/control/object_control/1.mp4" type="video/mp4">
                         </video>
+                        <div class="score-container">
+                            <span class="score-left">Score: 100.00</span>
+                            <span class="score-right">Score: 0.00</span>
+                        </div>
                     </div>
                 </div>
                 <!-- ... other object control videos ... -->
@@ -586,6 +642,10 @@
                         <video muted controls loop playsinline webkit-playsinline>
                             <source data-lazy="assets/videos/control/object_control/2.mp4" type="video/mp4">
                         </video>
+                        <div class="score-container">
+                            <span class="score-left">Score: 100.00</span>
+                            <span class="score-right">Score: 25.00</span>
+                        </div>
                     </div>
                 </div>
                 <div class="container interactive-container">
@@ -593,6 +653,10 @@
                         <video muted controls loop playsinline webkit-playsinline>
                             <source data-lazy="assets/videos/control/object_control/3.mp4" type="video/mp4">
                         </video>
+                    </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 100.00</span>
+                        <span class="score-right">Score: 25.00</span>
                     </div>
                 </div>
             </div>
@@ -648,12 +712,20 @@
                             <source src="assets/videos/quality/3D_consistency/3.mp4" type="video/mp4">
                         </video>
                     </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 92.88</span>
+                        <span class="score-right">Score: 0.00</span>
+                    </div>
                 </div>
                 <div class="container interactive-container">
                     <div class="interactive-item">
                         <video muted controls loop playsinline webkit-playsinline>
                             <source data-lazy="assets/videos/quality/3D_consistency/1.mp4" type="video/mp4">
                         </video>
+                    </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 94.60</span>
+                        <span class="score-right">Score: 0.00</span>
                     </div>
                 </div>
                 <!-- ... other videos ... -->
@@ -662,6 +734,10 @@
                         <video muted controls loop playsinline webkit-playsinline>
                             <source data-lazy="assets/videos/quality/3D_consistency/2.mp4" type="video/mp4">
                         </video>
+                    </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 94.41</span>
+                        <span class="score-right">Score: 0.00</span>
                     </div>
                 </div>
                 
@@ -693,6 +769,10 @@
                             <source data-lazy="assets/videos/quality/subjective_quality/1.mp4" type="video/mp4">
                         </video>
                     </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 100.00</span>
+                        <span class="score-right">Score: 25.27</span>
+                    </div>
                 </div>
                 <!-- ... other videos ... -->
                 <div class="container interactive-container">
@@ -701,12 +781,20 @@
                             <source data-lazy="assets/videos/quality/subjective_quality/2.mp4" type="video/mp4">
                         </video>
                     </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 63.94</span>
+                        <span class="score-right">Score: 0.00</span>
+                    </div>
                 </div>
                 <div class="container interactive-container">
                     <div class="interactive-item">
                         <video muted controls loop playsinline webkit-playsinline>
                             <source data-lazy="assets/videos/quality/subjective_quality/3.mp4" type="video/mp4">
                         </video>
+                    </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 92.77</span>
+                        <span class="score-right">Score: 36.94</span>
                     </div>
                 </div>
             </div>
@@ -738,6 +826,10 @@
                             <source data-lazy="assets/videos/quality/style_consistency/2.mp4" type="video/mp4">
                         </video>
                     </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 72.22</span>
+                        <span class="score-right">Score: 0.00</span>
+                    </div>
                 </div>
                 <div class="container interactive-container">
                     <div class="interactive-item">
@@ -745,12 +837,20 @@
                             <source data-lazy="assets/videos/quality/style_consistency/3.mp4" type="video/mp4">
                         </video>
                     </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 84.80</span>
+                        <span class="score-right">Score: 0.00</span>
+                    </div>
                 </div>
                 <div class="container interactive-container">
                     <div class="interactive-item">
                         <video muted controls loop playsinline webkit-playsinline>
                             <source data-lazy="assets/videos/quality/style_consistency/4.mp4" type="video/mp4">
                         </video>
+                    </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 84.14</span>
+                        <span class="score-right">Score: 0.94</span>
                     </div>
                 </div>
             </div>
@@ -786,12 +886,20 @@
                             <source data-lazy="assets/videos/quality/photometric_consistency/3.mp4" type="video/mp4">
                         </video>
                     </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 91.07</span>
+                        <span class="score-right">Score: 17.86</span>
+                    </div>
                 </div>
                 <div class="container interactive-container">
                     <div class="interactive-item">
                         <video muted controls loop playsinline webkit-playsinline>
                             <source data-lazy="assets/videos/quality/photometric_consistency/4.mp4" type="video/mp4">
                         </video>
+                    </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 95.31</span>
+                        <span class="score-right">Score: 18.33</span>
                     </div>
                 </div>
                 <div class="container interactive-container">
@@ -800,12 +908,20 @@
                             <source data-lazy="assets/videos/quality/photometric_consistency/5.mp4" type="video/mp4">
                         </video>
                     </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 94.28</span>
+                        <span class="score-right">Score: 11.95</span>
+                    </div>
                 </div>
                 <div class="container interactive-container">
                     <div class="interactive-item">
                         <video muted controls loop playsinline webkit-playsinline>
                             <source data-lazy="assets/videos/quality/photometric_consistency/6.mp4" type="video/mp4">
                         </video>
+                    </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 90.86</span>
+                        <span class="score-right">Score: 14.51</span>
                     </div>
                 </div>
             </div>
@@ -862,6 +978,10 @@
                             <source src="assets/videos/dynamics/motion_accuracy/1.mp4" type="video/mp4">
                         </video>
                     </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 100.00</span>
+                        <span class="score-right">Score: 0.00</span>
+                    </div>
                 </div>
                 <!-- ... other videos ... -->
                 <div class="container interactive-container">
@@ -870,6 +990,10 @@
                             <source data-lazy="assets/videos/dynamics/motion_accuracy/2.mp4" type="video/mp4">
                         </video>
                     </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 83.98</span>
+                        <span class="score-right">Score: 39.11</span>
+                    </div>
                 </div>
                 <div class="container interactive-container">
                     <div class="interactive-item">
@@ -877,12 +1001,20 @@
                             <source data-lazy="assets/videos/dynamics/motion_accuracy/3.mp4" type="video/mp4">
                         </video>
                     </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 100.00</span>
+                        <span class="score-right">Score: 32.42</span>
+                    </div>
                 </div>
                 <div class="container interactive-container">
                     <div class="interactive-item">
                         <video muted controls loop playsinline webkit-playsinline>
                             <source data-lazy="assets/videos/dynamics/motion_accuracy/4.mp4" type="video/mp4">
                         </video>
+                    </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 85.12</span>
+                        <span class="score-right">Score: 35.19</span>
                     </div>
                 </div>
             </div>
@@ -921,6 +1053,10 @@
                             <source data-lazy="assets/videos/dynamics/motion_smoothness/1.mp4" type="video/mp4">
                         </video>
                     </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 90.44</span>
+                        <span class="score-right">Score: 13.92</span>
+                    </div>
                 </div>
                 <!-- ... other videos ... -->
                 <div class="container interactive-container">
@@ -929,12 +1065,20 @@
                             <source data-lazy="assets/videos/dynamics/motion_smoothness/2.mp4" type="video/mp4">
                         </video>
                     </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 92.21</span>
+                        <span class="score-right">Score: 13.42</span>
+                    </div>
                 </div>
                 <div class="container interactive-container">
                     <div class="interactive-item">
                         <video muted controls loop playsinline webkit-playsinline>
                             <source data-lazy="assets/videos/dynamics/motion_smoothness/3.mp4" type="video/mp4">
                         </video>
+                    </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 91.44</span>
+                        <span class="score-right">Score: 20.24</span>
                     </div>
                 </div>
                 <div class="container interactive-container">
@@ -943,12 +1087,20 @@
                             <source data-lazy="assets/videos/dynamics/motion_smoothness/4.mp4" type="video/mp4">
                         </video>
                     </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 91.06</span>
+                        <span class="score-right">Score: 20.54</span>
+                    </div>
                 </div>
                 <div class="container interactive-container">
                     <div class="interactive-item">
                         <video muted controls loop playsinline webkit-playsinline>
                             <source data-lazy="assets/videos/dynamics/motion_smoothness/5.mp4" type="video/mp4">
                         </video>
+                    </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 46.89</span>
+                        <span class="score-right">Score: 18.91</span>
                     </div>
                 </div>
             </div>
@@ -979,6 +1131,10 @@
                             <source data-lazy="assets/videos/dynamics/motion_magnitude/1.mp4" type="video/mp4">
                         </video>
                     </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 100.00</span>
+                        <span class="score-right">Score: 37.84</span>
+                    </div>
                 </div>
                 <!-- ... other videos ... -->
                 <div class="container interactive-container">
@@ -987,12 +1143,20 @@
                             <source data-lazy="assets/videos/dynamics/motion_magnitude/2.mp4" type="video/mp4">
                         </video>
                     </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 100.00</span>
+                        <span class="score-right">Score: 28.57</span>
+                    </div>
                 </div>
                 <div class="container interactive-container">
                     <div class="interactive-item">
                         <video muted controls loop playsinline webkit-playsinline>
                             <source data-lazy="assets/videos/dynamics/motion_magnitude/3.mp4" type="video/mp4">
                         </video>
+                    </div>
+                    <div class="score-container">
+                        <span class="score-left">Score: 100.00</span>
+                        <span class="score-right">Score: 29.80</span>
                     </div>
                 </div>
             </div>
