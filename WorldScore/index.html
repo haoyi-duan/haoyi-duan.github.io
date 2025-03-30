@@ -339,6 +339,105 @@
         color: #000000;  /* Red for lower scores */
     }
 
+    .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+
+    .comparison-table th, 
+    .comparison-table td {
+        padding: 8px;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
+
+    .comparison-table th {
+        background-color: #f5f5f5;
+        font-weight: bold;
+    }
+
+    .comparison-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .comparison-table .bi-check {
+        color: #2ecc71;  /* 绿色 */
+        font-weight: bold;
+    }
+
+    .comparison-table .bi-x {
+        color: #e74c3c;  /* 红色 */
+        font-weight: bold;
+    }
+
+    .table-caption {
+        margin-top: 10px;
+        text-align: left;
+        font-style: italic;
+    }
+
+    .evaluation-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 14px;
+    }
+
+    .evaluation-table th, 
+    .evaluation-table td {
+        padding: 8px;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
+
+    .evaluation-table th {
+        background-color: #f5f5f5;
+        font-weight: bold;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .evaluation-table th.sortable:hover {
+        background-color: #e5e5e5;
+    }
+
+    .evaluation-table th.sortable::after {
+        content: '↕';
+        position: absolute;
+        right: 8px;
+        opacity: 0.3;
+    }
+
+    .evaluation-table th.sorted-asc::after {
+        content: '↑';
+        opacity: 1;
+    }
+
+    .evaluation-table th.sorted-desc::after {
+        content: '↓';
+        opacity: 1;
+    }
+
+    .evaluation-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .evaluation-table .best-value {
+        font-weight: bold;
+        color: #2ecc71;
+    }
+
+    .evaluation-table .second-best-value {
+        text-decoration: underline;
+        color: #27ae60;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
 </style>
 
 <body>
@@ -1173,6 +1272,487 @@
                     <p class="body-text">
                         We introduce the WorldScore benchmark, the first unified benchmark for world generation. We decompose world generation into a sequence of next-scene generation tasks with explicit camera trajectory-based layout specifications, enabling unified evaluation of diverse approaches from 3D and 4D scene generation to video generation models. The WorldScore benchmark encompasses a curated dataset of 3,000 test examples that span diverse worlds: static and dynamic, indoor and outdoor, photorealistic and stylized. The WorldScore metric evaluates generated worlds through three key aspects: controllability, quality, and dynamics. Through extensive evaluation of 19 representative models, including both open-source and closed-source ones, we reveal key insights and challenges for each category of models.
                     </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row" id="abstract">
+                <div class="col my-3">
+                    <p class="text-header">
+                        Comparison of Benchmarks
+                    </p>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Benchmark</th>
+                                <th># Examples</th>
+                                <th>Multi-Scene</th>
+                                <th>Unified</th>
+                                <th>Long Seq.</th>
+                                <th>Image Cond.</th>
+                                <th>Multi-Style</th>
+                                <th>Camera Ctrl.</th>
+                                <th>3D Consist.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>TC-Bench</td>
+                                <td>150</td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-check"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                            </tr>
+                            <tr>
+                                <td>EvalCrafter</td>
+                                <td>700</td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                            </tr>
+                            <tr>
+                                <td>FETV</td>
+                                <td>619</td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                            </tr>
+                            <tr>
+                                <td>VBench</td>
+                                <td>800</td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                            </tr>
+                            <tr>
+                                <td>T2V-CompBench</td>
+                                <td>700</td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Meng et al.</td>
+                                <td>160</td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Wang et al.</td>
+                                <td>423</td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-check"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                            </tr>
+                            <tr>
+                                <td>ChronoMagic-Bench</td>
+                                <td>1649</td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                            </tr>
+                            <tr>
+                                <td>WorldModelBench</td>
+                                <td>350</td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-check"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                                <td><i class="bi bi-x"></i></td>
+                            </tr>
+                            <tr>
+                                <td><strong>WorldScore (Ours)</strong></td>
+                                <td><strong>3000</strong></td>
+                                <td><i class="bi bi-check"></i></td>
+                                <td><i class="bi bi-check"></i></td>
+                                <td><i class="bi bi-check"></i></td>
+                                <td><i class="bi bi-check"></i></td>
+                                <td><i class="bi bi-check"></i></td>
+                                <td><i class="bi bi-check"></i></td>
+                                <td><i class="bi bi-check"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="body-text">
+                        Our WorldScore benchmark is designed to evaluate various world generation approaches including 3D, 4D, I2V and T2V models. It is designed to generate multiple scenes with varying sequence lengths. Our benchmark also features multiple visual styles, accurate camera control evaluation, and 3D consistency evaluation, all of which are important factors in world generation yet currently missing in existing benchmarks.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row" id="citation">
+                <div class="col my-3">
+                    <p class="text-header">
+                        Dataset
+                    </p>
+                    <div class="body-text">
+                        Showcasing of the current scene images. See <a href='https://huggingface.co/datasets/Howieeeee/WorldScore'><img src='https://img.shields.io/badge/Dataset-Huggingface-yellow?logo=huggingface&logoColor=yellow'></a> for the entire dataset.
+                    </div>
+                    <img src="assets/images/overview/dataset_overview.svg" alt="Dataset Overview" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row" id="citation">
+                <div class="col my-3">
+                    <p class="text-header">
+                        Evaluation Results
+                    </p>
+                    <div class="body-text">
+                        See our <a href='https://huggingface.co/spaces/Howieeeee/WorldScore_Leaderboard'><img src='https://img.shields.io/badge/Leaderboard-Huggingface-yellow?logo=huggingface&logoColor=yellow'></a> for the most updated ranking and numerical results.
+                    </div>
+                    <div class="table-responsive">
+                        <table class="evaluation-table">
+                            <thead>
+                                <tr>
+                                    <th>Models</th>
+                                    <th>WorldScore-Static</th>
+                                    <th>WorldScore-Dynamic</th>
+                                    <th>Camera Ctrl</th>
+                                    <th>Object Ctrl</th>
+                                    <th>Content Align</th>
+                                    <th>3D Consist</th>
+                                    <th>Photo Consist</th>
+                                    <th>Style Consist</th>
+                                    <th>Subjective Qual</th>
+                                    <th>Motion Acc</th>
+                                    <th>Motion Mag</th>
+                                    <th>Motion Smooth</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Gen-3</td>
+                                    <td>60.71</td>
+                                    <td><u>57.58</u></td>
+                                    <td>29.47</td>
+                                    <td><u>62.92</u></td>
+                                    <td>50.49</td>
+                                    <td>68.31</td>
+                                    <td>87.09</td>
+                                    <td>62.82</td>
+                                    <td>63.85</td>
+                                    <td>54.53</td>
+                                    <td>27.48</td>
+                                    <td>68.87</td>
+                                </tr>
+                                <tr>
+                                    <td>Hailuo</td>
+                                    <td>57.55</td>
+                                    <td>56.36</td>
+                                    <td>22.39</td>
+                                    <td><strong>69.56</strong></td>
+                                    <td><u>73.53</u></td>
+                                    <td>67.18</td>
+                                    <td>62.82</td>
+                                    <td>54.91</td>
+                                    <td>52.44</td>
+                                    <td>63.46</td>
+                                    <td>27.20</td>
+                                    <td><u>70.07</u></td>
+                                </tr>
+                                <tr>
+                                    <td>DynamiCrafter</td>
+                                    <td>52.09</td>
+                                    <td>47.19</td>
+                                    <td>25.15</td>
+                                    <td>47.36</td>
+                                    <td>25.00</td>
+                                    <td>72.90</td>
+                                    <td>60.95</td>
+                                    <td><u>78.85</u></td>
+                                    <td>54.40</td>
+                                    <td>41.11</td>
+                                    <td>39.25</td>
+                                    <td>26.92</td>
+                                </tr>
+                                <tr>
+                                    <td>VideoCrafter1-T2V</td>
+                                    <td>47.10</td>
+                                    <td>43.54</td>
+                                    <td>21.61</td>
+                                    <td>50.44</td>
+                                    <td>60.78</td>
+                                    <td>64.86</td>
+                                    <td>51.36</td>
+                                    <td>38.05</td>
+                                    <td>42.63</td>
+                                    <td>11.76</td>
+                                    <td><strong>75.00</strong></td>
+                                    <td>18.87</td>
+                                </tr>
+                                <tr>
+                                    <td>VideoCrafter1-I2V</td>
+                                    <td>50.47</td>
+                                    <td>47.64</td>
+                                    <td>25.46</td>
+                                    <td>24.25</td>
+                                    <td>35.27</td>
+                                    <td>74.42</td>
+                                    <td>73.89</td>
+                                    <td>65.17</td>
+                                    <td>54.85</td>
+                                    <td>55.63</td>
+                                    <td>25.00</td>
+                                    <td>42.49</td>
+                                </tr>
+                                <tr>
+                                    <td>VideoCrafter2</td>
+                                    <td>52.57</td>
+                                    <td>47.49</td>
+                                    <td>28.92</td>
+                                    <td>39.07</td>
+                                    <td>72.46</td>
+                                    <td>65.14</td>
+                                    <td>61.85</td>
+                                    <td>43.79</td>
+                                    <td>56.74</td>
+                                    <td>47.12</td>
+                                    <td>30.40</td>
+                                    <td>29.39</td>
+                                </tr>
+                                <tr>
+                                    <td>T2V-Turbo</td>
+                                    <td>45.65</td>
+                                    <td>40.20</td>
+                                    <td>27.80</td>
+                                    <td>30.68</td>
+                                    <td>69.14</td>
+                                    <td>38.72</td>
+                                    <td>34.84</td>
+                                    <td>49.65</td>
+                                    <td><strong>68.74</strong></td>
+                                    <td>34.87</td>
+                                    <td>40.09</td>
+                                    <td>7.48</td>
+                                </tr>
+                                <tr>
+                                    <td>EasyAnimate</td>
+                                    <td>52.85</td>
+                                    <td>51.65</td>
+                                    <td>26.72</td>
+                                    <td>54.50</td>
+                                    <td>50.76</td>
+                                    <td>67.29</td>
+                                    <td>47.35</td>
+                                    <td>73.05</td>
+                                    <td>50.31</td>
+                                    <td><strong>75.00</strong></td>
+                                    <td>31.16</td>
+                                    <td>40.32</td>
+                                </tr>
+                                <tr>
+                                    <td>CogVideoX-T2V</td>
+                                    <td>54.18</td>
+                                    <td>48.79</td>
+                                    <td>40.22</td>
+                                    <td>51.05</td>
+                                    <td>68.12</td>
+                                    <td>68.81</td>
+                                    <td>64.20</td>
+                                    <td>42.19</td>
+                                    <td>44.67</td>
+                                    <td>25.00</td>
+                                    <td><u>47.31</u></td>
+                                    <td>36.28</td>
+                                </tr>
+                                <tr>
+                                    <td>CogVideoX-I2V</td>
+                                    <td>62.15</td>
+                                    <td><strong>59.12</strong></td>
+                                    <td>38.27</td>
+                                    <td>40.07</td>
+                                    <td>36.73</td>
+                                    <td>86.21</td>
+                                    <td>88.12</td>
+                                    <td><strong>83.22</strong></td>
+                                    <td>62.44</td>
+                                    <td><u>69.56</u></td>
+                                    <td>26.42</td>
+                                    <td>60.15</td>
+                                </tr>
+                                <tr>
+                                    <td>Allegro</td>
+                                    <td>55.31</td>
+                                    <td>51.97</td>
+                                    <td>24.84</td>
+                                    <td>57.47</td>
+                                    <td>51.48</td>
+                                    <td>70.50</td>
+                                    <td>69.89</td>
+                                    <td>65.60</td>
+                                    <td>47.41</td>
+                                    <td>54.39</td>
+                                    <td>40.28</td>
+                                    <td>37.81</td>
+                                </tr>
+                                <tr>
+                                    <td>Vchitect-2.0</td>
+                                    <td>42.28</td>
+                                    <td>38.47</td>
+                                    <td>26.55</td>
+                                    <td>49.54</td>
+                                    <td>65.75</td>
+                                    <td>41.53</td>
+                                    <td>42.30</td>
+                                    <td>25.69</td>
+                                    <td>44.58</td>
+                                    <td>33.59</td>
+                                    <td>33.81</td>
+                                    <td>21.31</td>
+                                </tr>
+                                <tr>
+                                    <td>SceneScape</td>
+                                    <td>50.73</td>
+                                    <td>35.51</td>
+                                    <td>84.99</td>
+                                    <td>47.44</td>
+                                    <td>28.64</td>
+                                    <td>76.54</td>
+                                    <td>62.88</td>
+                                    <td>21.85</td>
+                                    <td>32.75</td>
+                                    <td>0.00</td>
+                                    <td>0.00</td>
+                                    <td>0.00</td>
+                                </tr>
+                                <tr>
+                                    <td>Text2Room</td>
+                                    <td>62.10</td>
+                                    <td>43.47</td>
+                                    <td><strong>94.01</strong></td>
+                                    <td>38.93</td>
+                                    <td>50.79</td>
+                                    <td><u>88.71</u></td>
+                                    <td>88.36</td>
+                                    <td>37.23</td>
+                                    <td>36.69</td>
+                                    <td>0.00</td>
+                                    <td>0.00</td>
+                                    <td>0.00</td>
+                                </tr>
+                                <tr>
+                                    <td>LucidDreamer</td>
+                                    <td><u>70.40</u></td>
+                                    <td>49.28</td>
+                                    <td>88.93</td>
+                                    <td>41.18</td>
+                                    <td><strong>75.00</strong></td>
+                                    <td><strong>90.37</strong></td>
+                                    <td><strong>90.20</strong></td>
+                                    <td>48.10</td>
+                                    <td>58.99</td>
+                                    <td>0.00</td>
+                                    <td>0.00</td>
+                                    <td>0.00</td>
+                                </tr>
+                                <tr>
+                                    <td>WonderJourney</td>
+                                    <td>63.75</td>
+                                    <td>44.63</td>
+                                    <td>84.60</td>
+                                    <td>37.10</td>
+                                    <td>35.54</td>
+                                    <td>80.60</td>
+                                    <td>79.03</td>
+                                    <td>62.82</td>
+                                    <td><u>66.56</u></td>
+                                    <td>0.00</td>
+                                    <td>0.00</td>
+                                    <td>0.00</td>
+                                </tr>
+                                <tr>
+                                    <td>InvisibleStitch</td>
+                                    <td>61.12</td>
+                                    <td>42.78</td>
+                                    <td><u>93.20</u></td>
+                                    <td>36.51</td>
+                                    <td>29.53</td>
+                                    <td>88.51</td>
+                                    <td><u>89.19</u></td>
+                                    <td>32.37</td>
+                                    <td>58.50</td>
+                                    <td>0.00</td>
+                                    <td>0.00</td>
+                                    <td>0.00</td>
+                                </tr>
+                                <tr>
+                                    <td>WonderWorld</td>
+                                    <td><strong>72.69</strong></td>
+                                    <td>50.88</td>
+                                    <td>92.98</td>
+                                    <td>51.76</td>
+                                    <td>71.25</td>
+                                    <td>86.87</td>
+                                    <td>85.56</td>
+                                    <td>70.57</td>
+                                    <td>49.81</td>
+                                    <td>0.00</td>
+                                    <td>0.00</td>
+                                    <td>0.00</td>
+                                </tr>
+                                <tr>
+                                    <td>4D-fy</td>
+                                    <td>27.98</td>
+                                    <td>32.10</td>
+                                    <td>69.92</td>
+                                    <td>55.09</td>
+                                    <td>0.85</td>
+                                    <td>35.47</td>
+                                    <td>1.59</td>
+                                    <td>32.04</td>
+                                    <td>0.89</td>
+                                    <td>22.22</td>
+                                    <td>22.88</td>
+                                    <td><strong>80.06</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
