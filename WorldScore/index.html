@@ -558,7 +558,7 @@
         <div class="container">
             <div class="container interactive-container">
                 <div class="interactive-item">
-                    <video muted controls loop playsinline webkit-playsinline>
+                    <video muted controls loop playsinline webkit-playsinline style="max-width: 70%; margin: 0 auto; display: block;">
                         <source src="assets/videos/overview.mp4" type="video/mp4">
                     </video>
                 </div>
@@ -1284,7 +1284,9 @@
                     <p class="text-header">
                         Comparison of Benchmarks
                     </p>
-                    <table class="comparison-table">
+                    <div class="table-responsive">
+                        <table class="evaluation-table">
+                    <!-- <table class="comparison-table"> -->
                         <thead>
                             <tr>
                                 <th>Benchmark</th>
@@ -1410,7 +1412,8 @@
                                 <td><i class="bi bi-check"></i></td>
                             </tr>
                         </tbody>
-                    </table>
+                        </table>
+                    </div>
                     <p class="body-text">
                         Our WorldScore benchmark is designed to evaluate various world generation approaches including 3D, 4D, I2V and T2V models. It is designed to generate multiple scenes with varying sequence lengths. Our benchmark also features multiple visual styles, accurate camera control evaluation, and 3D consistency evaluation, all of which are important factors in world generation yet currently missing in existing benchmarks.
                     </p>
