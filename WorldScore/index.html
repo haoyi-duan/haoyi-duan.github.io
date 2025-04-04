@@ -1784,15 +1784,37 @@
                     <p class="text-header">
                         BibTeX
                     </p>
-                    <div class="citation-block">
-                        <div id="citation-text" class="citation-content">
-                            Coming soon!
-                        </div>
-                        <button onclick="copyToClipboard()" class="button active mt-2">Copy</button>
+                    <div class="citation-block" style="background-color: #f8f9fa; padding: 15px; border-radius: 5px;">
+                        <pre id="citation-text" style="font-family: monospace; text-align: left;">
+@inproceedings{yu2025wonderworld,
+    title={WonderWorld: Interactive 3D Scene Generation from a Single Image},
+    author={Hong-Xing Yu and Haoyi Duan and Charles Herrmann and William T. Freeman and Jiajun Wu},
+    booktitle={CVPR},
+    year={2025}
+}</pre>
+                        <button onclick="copyBibTeX()" class="btn btn-primary mt-2" style="display: block; margin-left: 0;">
+                            <i class="bi bi-clipboard"></i> Copy BibTeX
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <script>
+            function copyBibTeX() {
+                const citationText = document.getElementById('citation-text').textContent;
+                navigator.clipboard.writeText(citationText).then(() => {
+                    const button = document.querySelector('.citation-block button');
+                    const originalText = button.innerHTML;
+                    button.innerHTML = '<i class="bi bi-clipboard-check"></i> Copied!';
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                });
+            }
+        </script>
     </section>
 
     <div style="height: 60px;"></div>
