@@ -454,9 +454,56 @@
         font-weight: bold;
     }
 
+    .full-page-image {
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease; /* 添加过渡效果 */
+    }
+
+    /* 添加banner状态的样式 */
+    .full-page-image.banner-state {
+        height: 2vh; /* 或其他想要的高度 */
+    }
+
+    .full-page-image.no-content .content {
+        opacity: 0;
+    }
+
+    .static-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('path/to/your/static-image.jpg'); /* 替换为您的背景图片路径 */
+        background-size: cover;
+        background-position: center;
+    }
+
+    #bg-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0; /* 初始设置为透明 */
+        transition: opacity 0.3s ease; /* 添加过渡效果 */
+    }
 </style>
 
 <body>
+    <div class="full-page-image">
+        <div class="static-bg"></div>
+        <video id="bg-video" autoplay loop muted playsinline>
+            <source src="assets/videos/final.mp4" type="video/mp4">
+        </video>
+        <div class="content">
+            <!-- 内容 -->
+        </div>
+    </div>
+
     <section style="margin-top: 30px;">
         <div class="container" style="display: flex; flex-direction: column; align-items: center;">
             <div class="row" id="title" style="width: 100%; text-align: center;">
@@ -2049,6 +2096,29 @@
             document.getElementById('dynamics-description').innerHTML = 
                 `${descriptions[dynamicsType]}`;
         });
+    });
+    </script>
+
+    <script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const videoElement = document.getElementById('bg-video');
+        videoElement.addEventListener('loadedmetadata', function () {
+            videoElement.style.opacity = 1.0;
+        });
+    });
+    window.addEventListener("scroll", function () {
+        let imageDiv = document.querySelector('.full-page-image');
+        const videoElement = document.getElementById('bg-video');
+    
+        if (window.scrollY > 175) {
+            videoElement.style.opacity = 0;
+        }
+        // Check if page is scrolled
+        if (window.scrollY > 200) { // You can adjust this value based on your requirement
+            imageDiv.classList.add('banner-state');
+            imageDiv.classList.add('no-content');
+        }
     });
     </script>
 
