@@ -455,30 +455,33 @@
     }
 
     .full-page-image {
-        height: 100vh;
         position: relative;
+        width: 100%;
+        height: 100vh; /* 设置为视窗高度 */
         overflow: hidden;
-        transition: all 0.3s ease; /* 添加过渡效果 */
     }
 
-    /* 添加banner状态的样式 */
-    .full-page-image.banner-state {
-        height: 2vh; /* 或其他想要的高度 */
-    }
-
-    .full-page-image.no-content .content {
-        opacity: 0;
-    }
-
-    .static-bg {
+    .full-page-image video {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url('path/to/your/static-image.jpg'); /* 替换为您的背景图片路径 */
-        background-size: cover;
-        background-position: center;
+        object-fit: cover; /* 确保视频填充整个容器 */
+    }
+
+    .full-page-image .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* 可选：添加半透明遮罩 */
+    }
+
+    .full-page-image .content {
+        position: relative;
+        z-index: 1; /* 确保内容在视频和遮罩层之上 */
     }
 
     #bg-video {
@@ -488,20 +491,37 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        opacity: 0; /* 初始设置为透明 */
-        transition: opacity 0.3s ease; /* 添加过渡效果 */
+        opacity: 0;
+        transition: opacity 1.0s ease;
+    }
+
+    .content {
+        /* Center your content vertically and horizontally */
+        position: absolute;
+        bottom: 0;
+        /* right: 25; */
+        /* transform: translate(-50%, -50%); */
+        z-index: 2;
+        color: #fff; /* Set the color for your content */
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+    .banner-state {
+        height: 350px; /* or whatever height you want for the banner */
+        transition: height 1s ease;
+    }
+    
+    .no-content .content {
+        opacity: 0;
+        transition: opacity 1s ease;
     }
 </style>
 
 <body>
     <div class="full-page-image">
-        <div class="static-bg"></div>
         <video id="bg-video" autoplay loop muted playsinline>
             <source src="assets/videos/final.mp4" type="video/mp4">
         </video>
-        <div class="content">
-            <!-- 内容 -->
-        </div>
     </div>
 
     <section style="margin-top: 30px;">
@@ -2100,25 +2120,16 @@
     </script>
 
     <script>
-
     document.addEventListener('DOMContentLoaded', function () {
         const videoElement = document.getElementById('bg-video');
+    
+        // When the video metadata is loaded
         videoElement.addEventListener('loadedmetadata', function () {
+            // Start playing the video
+            // videoElement.play();
+            // Gradually fade in the video after it finishes loading
             videoElement.style.opacity = 1.0;
         });
-    });
-    window.addEventListener("scroll", function () {
-        let imageDiv = document.querySelector('.full-page-image');
-        const videoElement = document.getElementById('bg-video');
-    
-        if (window.scrollY > 175) {
-            videoElement.style.opacity = 0;
-        }
-        // Check if page is scrolled
-        if (window.scrollY > 200) { // You can adjust this value based on your requirement
-            imageDiv.classList.add('banner-state');
-            imageDiv.classList.add('no-content');
-        }
     });
     </script>
 
