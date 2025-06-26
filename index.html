@@ -185,6 +185,81 @@
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             
+
+            <tr onmouseout="regnerf_stop()" onmouseover="regnerf_start()">
+              <script type="text/javascript">
+                function mnb_abs_ws() {
+                  old = document.getElementById('mnb-abs-worldscore').style.display
+                  console.log(old)
+                  if(old == "none") {
+                    document.getElementById('mnb-abs-worldscore').style.display = "block"
+                  } else {
+                    document.getElementById('mnb-abs-worldscore').style.display = "none"
+                  }
+                }
+                document.getElementById('mnb-abs-worldscore').style.display = "none"
+              </script>
+
+              <style>
+                /* Apply the shadow and background color on hover for the entire row */
+                tr.hoverable-row:hover {
+                  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.4);  /* Light shadow only on the edges */
+                  transition: background-color 0.3s, box-shadow 0.3s;  /* Smooth transition */
+                }
+              </style>
+              <tr class="hoverable-row">
+              <td style="width:40%;vertical-align:middle">
+                <video  width=100% height=auto style="bject-fit:cover;border-radius:5px;" muted autoplay loop playsinline>
+                <source src="images/worldscore.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+              </td>
+              <td class="caption" style="text-align:left;padding:20px;width:75%;vertical-align:top">
+                  <span class="papertitle">WorldScore: A Unified Evaluation Benchmark for World Generation</span>
+                <br>
+                <strong>Haoyi Duan*</strong>,
+                <a href="https://kovenyu.com/" target="_blank">Hong-Xing "Koven" Yu*</a>,
+                <a href="https://www.linkedin.com/in/sirui-c-6492a0232/" target="_blank">Sirui Chen</a>,
+                <br>
+                <a href="https://profiles.stanford.edu/fei-fei-li" target="_blank">Li Fei-Fei</a>,
+                <a href="https://jiajunwu.com/" target="_blank">Jiajun Wu</a>
+                <br>
+                <em>ICCV 2025 </em><br>
+                <em>WorldModelBench CVPR 2025 <strong><span style="color: red;">(Oral)</span></strong></em>
+                <br>
+                <a href="https://arxiv.org/pdf/2504.00983" target="_blank">[Paper]</a>
+                <a href="https://haoyi-duan.github.io/WorldScore/" target="_blank">[Website]</a>
+                <a href="https://x.com/Koven_Yu/status/1909313273100710393" target="_blank">[<i class="fab fa-twitter"></i>]</a>
+
+
+                <a href="https://github.com/haoyi-duan/WorldScore" target="_blank">[Code]</a>
+                <a onclick="mnb_abs_ws()">[Bibtex]</a>
+                <a href="https://github.com/haoyi-duan/WorldScore/stargazers" target="_blank">
+                  <img src="https://img.shields.io/github/stars/haoyi-duan/WorldScore?style=social&amp;label=Stars" alt="" />
+                </a>
+                <p></p>
+                <!-- <p>Regularizing unseen views during optimization enables view synthesis from as few as 3 input images.</p> -->
+                <div class="bibtex" style="border-radius: 5px;">
+                  <div class="bibtex_text" style="display:none;font-size: 14px" id="mnb-abs-worldscore">
+                    
+                    @article{duan2025worldscore,
+                      <br>
+                          &nbsp&nbsp&nbsp&nbsp title={Worldscore: A unified evaluation benchmark for world generation},
+                      <br>
+                          &nbsp&nbsp&nbsp&nbsp author={Duan, Haoyi and Yu, Hong-Xing and Chen, Sirui and Fei-Fei, Li and Wu, Jiajun},
+                      <br>
+                          &nbsp&nbsp&nbsp&nbsp journal={arXiv preprint arXiv:2504.00983},
+                      <br>
+                          &nbsp&nbsp&nbsp&nbsp year={2025}
+                      <br>
+                    }
+                  </div>
+                </div>
+              </td>
+            </tr> 
+          </tr>
+
+
             <tr onmouseout="regnerf_stop()" onmouseover="regnerf_start()">
               <script type="text/javascript">
                 function mnb_abs_ww() {
@@ -239,15 +314,17 @@
                 <!-- <p>Regularizing unseen views during optimization enables view synthesis from as few as 3 input images.</p> -->
                 <div class="bibtex" style="border-radius: 5px;">
                   <div class="bibtex_text" style="display:none;font-size: 14px" id="mnb-abs-wonderworld">
-                    @article{yu2024wonderworld,
+                    @inproceedings{yu2025wonderworld,
                       <br>
-                          &nbsp&nbsp&nbsp&nbsp title={WonderWorld: Interactive 3D Scene Generation from a Single Image},
+                          &nbsp&nbsp&nbsp&nbsp title={Wonderworld: Interactive 3d scene generation from a single image},
                       <br>
                           &nbsp&nbsp&nbsp&nbsp author={Yu, Hong-Xing and Duan, Haoyi and Herrmann, Charles and Freeman, William T and Wu, Jiajun},
                       <br>
-                          &nbsp&nbsp&nbsp&nbsp journal={arXiv preprint arXiv:2406.09394},
+                          &nbsp&nbsp&nbsp&nbsp booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
                       <br>
-                          &nbsp&nbsp&nbsp&nbsp year={2024}
+                          &nbsp&nbsp&nbsp&nbsp pages={5916--5926},
+                      <br> 
+                          &nbsp&nbsp&nbsp&nbsp year={2025},
                       <br>
                     }
                   </div>
