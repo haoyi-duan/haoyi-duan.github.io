@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Haoyi Duan is a graduate student at the department of Electrical Engineering of Stanford University.">
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -104,6 +105,72 @@
                 </tbody></table>
                 <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
                   
+
+                  <tr onmouseout="regnerf_stop()" onmouseover="regnerf_start()">
+                    <script type="text/javascript">
+                      function mnb_abs_ctrlvi() {
+                        old = document.getElementById('mnb-abs-ctrlvi').style.display
+                        console.log(old)
+                        if(old == "none") {
+                          document.getElementById('mnb-abs-ctrlvi').style.display = "block"
+                        } else {
+                          document.getElementById('mnb-abs-ctrlvi').style.display = "none"
+                        }
+                      }
+                      document.getElementById('mnb-abs-ctrlvi').style.display = "none"
+                    </script>
+      
+                    <style>
+                      /* Apply the shadow and background color on hover for the entire row */
+                      tr.hoverable-row:hover {
+                        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.4);  /* Light shadow only on the edges */
+                        transition: background-color 0.3s, box-shadow 0.3s;  /* Smooth transition */
+                      }
+                    </style>
+                    <tr class="hoverable-row">
+                    <td style="width:40%;vertical-align:middle">
+                      <video  width=100% height=auto style="bject-fit:cover;border-radius:5px;" muted autoplay loop playsinline>
+                      <source src="images/ctrlvi.mp4" type="video/mp4">
+                      Your browser does not support the video tag.
+                      </video>
+                    </td>
+                    <td class="caption" style="text-align:left;padding:20px;width:75%;vertical-align:top">
+                        <span class="papertitle">Ctrl-VI: Controllable Video Synthesis via Variational Inference</span>
+                      <br>
+                      <strong>Haoyi Duan*</strong>,
+                      <a href="https://cs.stanford.edu/~yzzhang/" target="_blank">Yunzhi Zhang*</a>,
+                      <a href="https://yilundu.github.io/" target="_blank">Yilun Du</a>,
+                      <a href="https://jiajunwu.com/" target="_blank">Jiajun Wu</a>
+                      <br>
+                      <em>arXiv Preprint 2025</em><br>
+                      <br>
+                      <a href="https://arxiv.org/pdf/2510.07670" target="_blank">[Paper]</a>
+                      <a href="https://video-synthesis-variational.github.io/" target="_blank">[Website]</a>
+                      <a href="https://x.com/zhang_yunzhi/status/1978995191718564312" target="_blank">[<i class="fab fa-x-twitter"></i>]</a>
+                      <a onclick="mnb_abs_ctrlvi()">[Bibtex]</a>
+                      <p></p>
+                      <!-- <p>Regularizing unseen views during optimization enables view synthesis from as few as 3 input images.</p> -->
+                      <div class="bibtex" style="border-radius: 5px;">
+                        <div class="bibtex_text" style="display:none;font-size: 14px" id="mnb-abs-ctrlvi">
+                          
+      
+                          @article{duan2025controllable,
+                            <br>
+                                &nbsp&nbsp&nbsp&nbsp title={Controllable Video Synthesis via Variational Inference},
+                            <br>
+                                &nbsp&nbsp&nbsp&nbsp author={Duan, Haoyi and Zhang, Yunzhi and Du, Yilun and Wu, Jiajun},
+                            <br>
+                                &nbsp&nbsp&nbsp&nbsp journal={arXiv preprint arXiv:2510.07670},
+                            <br>
+                                &nbsp&nbsp&nbsp&nbsp year={2025}
+                            <br>
+                          }
+                        </div>
+                      </div>
+                    </td>
+                  </tr> 
+                </tr>
+                
                   <tr onmouseout="regnerf_stop()" onmouseover="regnerf_start()">
                     <script type="text/javascript">
                       function mnb_abs_ws() {
@@ -147,7 +214,7 @@
                       <br>
                       <a href="https://arxiv.org/pdf/2504.00983" target="_blank">[Paper]</a>
                       <a href="https://haoyi-duan.github.io/WorldScore/" target="_blank">[Website]</a>
-                      <a href="https://x.com/Koven_Yu/status/1909313273100710393" target="_blank">[<i class="fab fa-twitter"></i>]</a>
+                      <a href="https://x.com/Koven_Yu/status/1909313273100710393" target="_blank">[<i class="fab fa-x-twitter"></i>]</a>
       
       
                       <a href="https://github.com/haoyi-duan/WorldScore" target="_blank">[Code]</a>
@@ -220,7 +287,7 @@
                       <br>
                       <a href="https://arxiv.org/pdf/2406.09394" target="_blank">[Paper]</a>
                       <a href="https://kovenyu.com/wonderworld/" target="_blank">[Website]</a>
-                      <a href="https://x.com/Koven_Yu/status/1835769026934673595" target="_blank">[<i class="fab fa-twitter"></i>]</a>
+                      <a href="https://x.com/Koven_Yu/status/1835769026934673595" target="_blank">[<i class="fab fa-x-twitter"></i>]</a>
       
       
                       <a href="https://github.com/KovenYu/WonderWorld" target="_blank">[Code]</a>
@@ -293,7 +360,7 @@
                       <br>
                       <a href="https://openaccess.thecvf.com/content/CVPR2024/papers/Yu_WonderJourney_Going_from_Anywhere_to_Everywhere_CVPR_2024_paper.pdf" target="_blank">[Paper]</a>
                       <a href="https://kovenyu.com/wonderjourney/" target="_blank">[Website]</a>
-                      <a href="https://x.com/Koven_Yu/status/1733192368508322080" target="_blank">[<i class="fab fa-twitter"></i>]</a>
+                      <a href="https://x.com/Koven_Yu/status/1733192368508322080" target="_blank">[<i class="fab fa-x-twitter"></i>]</a>
                       <a href="https://github.com/KovenYu/WonderJourney" target="_blank">[Code]</a>
                       <a onclick="mnb_abs_sw()">[Bibtex]</a>
                       <a href="https://github.com/KovenYu/WonderJourney/stargazers" target="_blank">
@@ -568,7 +635,7 @@
 
     <footer class="fixed-bottom">
       <div class="container mt-0">
-        © Copyright 2024 Haoyi Duan. Last updated: March 2025.
+        © Copyright 2024 Haoyi Duan. Last updated: October 2025.
       </div>
     </footer>
 
